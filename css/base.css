@@ -1,0 +1,73 @@
+.ui.responsive.grid {
+    padding: 0 8%;
+}
+.ui.header {
+	margin-bottom: 0;
+}
+.ui.header > .ui.menu {
+	background-color: #e10000;
+	padding: 0 8%;
+}
+.ui.header > .ui.menu > .item {
+	font-size: 16px;
+    height: 80px;
+    line-height: 40px;
+    padding: 1em 1.5em;
+}
+.ui.header > .ui.menu > .item {
+	color: #fff;
+}
+.ui.header > .ui.menu > .item > img {
+	margin-top: 0.5em;
+}
+
+#frslide {
+	max-height: 400px;
+	position: relative;
+}
+#frslide > .ui.slide {
+	height: 100%;
+	width: 100%;
+}
+#frslide > .ui.slide > .item {
+	display: inline-block;
+	max-width: 100%;
+	float: left;
+}
+#frslide .pages {
+	bottom: 1em;
+    margin: 0 auto;
+    position: absolute;
+    width: 100%;
+	text-align: center;
+}
+#frslide .pages > a {
+	background-color: rgba(255,255,255,0.35);
+    border-radius: 2em;
+    display: inline-block;
+    height: 0.65em;
+    margin-right: 0.65em;
+    text-indent: -999em;
+    width: 0.65em;
+}
+#frslide .pages > a.active,
+#frslide .pages > a:hover {
+	background-color: rgba(255,255,255,0.75);
+}
+
+.ui.products.section {
+	margin: 2em auto 0;
+}
+.ui.items > .item, .ui.items > .row > .item {
+	border-bottom: 0 solid rgba(0, 0, 0, 0.2);
+	border-radius: 0;
+	min-height: 280px;
+	padding: 0;
+	box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.1);
+}
+.ui.items > .item:hover, .ui.items > .row > .item:hover {
+	box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.1);
+}
+.ui.two.items > .item {
+	margin: 0 0 1%;
+}
