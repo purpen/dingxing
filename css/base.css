@@ -10,15 +10,26 @@
 }
 .ui.header > .ui.menu > .item {
 	font-size: 16px;
-    height: 80px;
-    line-height: 40px;
-    padding: 1em 1.5em;
+    height: 50px;
+    line-height: 50px;
+    padding: 0 1.5em;
+	border-radius: 0;
 }
 .ui.header > .ui.menu > .item {
 	color: #fff;
 }
 .ui.header > .ui.menu > .item > img {
 	margin-top: 0.5em;
+}
+.ui.header > .ui.menu > .item:hover,
+.ui.header > .ui.menu > .active.item {
+	background-color: #fff;
+	color: #e10000;
+	box-shadow: 0 0 0 inset;
+}
+.ui.header > .ui.menu > .item:first-child:hover,
+.ui.header > .ui.menu > .active.item:first-child {
+	background-color: #e10000;
 }
 
 #frslide {
