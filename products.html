@@ -22,7 +22,6 @@
 			.clearfix {display: inline-table; +display:inline-block;}/* Hides from IE-mac \*/* html .clearfix {height: 1%;}.clearfix {display: block;}
 			#ft {
 				background: none repeat scroll 0 0 #545454;
-				border-bottom: 1px solid #E4E5E7;
 				padding: 1em 0 2em;
 				color:#fff;
 			}
@@ -30,6 +29,7 @@
 				display: block;
 				font-size: 1em;
 				padding: .3em 0;
+				letter-spacing: 2px;
 			}
 			#ft a{
 				text-decoration: none;
@@ -60,17 +60,25 @@
 			#ft .ftbor{
 				border-top: 1px solid rgba(0,0,0,.4);
 			}
+			#ft .copyright {
+				font-size: .875em;
+			}
+			#ft a.ui.link.item {
+				font-size: 14px;
+			}
 			
-		
+			#products {
+				width:1180px;
+				margin:0 auto;
+			}
 			#products a {
 				text-decoration: none;
 			}
-			#products a:hover {
-				text-decoration: underline;
-				color:red;
+			#products a:hover .sub.header{
+				color:red !important;
 			}
 			#products a .sub.header{
-				color:red !important;
+				color:#dc5a5a !important;
 				font-size:30px;
 				margin: 10px auto 15px;
 			}
@@ -247,7 +255,7 @@
 				</div>
 			</section>
 			<section class="ui section">
-				<div class="ui responsive grid">
+				<div class="ui grid">
 					<div class="row">
 						<div class="eight wide column">
 							<div class="image">

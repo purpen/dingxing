@@ -1,18 +1,27 @@
 .ui.responsive.grid {
-    padding: 0 8%;
+    width:1180px;
+	margin:0 auto !important;
 }
 .ui.header {
 	margin-bottom: 0;
 }
+h1.ui.header{
+	font-size:60px;
+	letter-spacing:5px;
+	color:#323232;
+}
+h1.ui.header .content .sub.header{
+	font-size:24px;
+}
 .ui.header > .ui.menu {
 	background-color: #e10000;
-	padding: 0 8%;
+	text-align:center;
 }
 .ui.header > .ui.menu > .item {
 	font-size: 16px;
-    height: 50px;
-    line-height: 50px;
-    padding: 0 1.5em;
+    height: 60px;
+    line-height: 60px;
+    padding: 0 3em;
 	border-radius: 0;
 }
 .ui.header > .ui.menu > .item {
