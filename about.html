@@ -66,6 +66,31 @@
 			#ft a.ui.link.item {
 				font-size: 14px;
 			}
+			.ui.table.grid{
+				border-bottom:1px solid #f1f2f5;
+				margin-top:.5em;
+			}
+			.ui.table .item{
+				min-height:0px !important;
+			}
+			.ui.table .row:first-child{
+				padding-left:812px;
+			}
+			.ui.table .item h5.ui.header{
+				margin: 1.4em 1.8em 0em;
+				padding-bottom: .6em;
+				font-size:15px;
+			}
+			.ui.table .item h5.ui.header.active{
+				border-bottom: 2px solid #e10000;
+				color:#e10000;
+			}
+			.ui.table .item{
+				font-size:0px !important;
+			}
+			.center.aligned{
+				text-align:center;
+			}
 			.ui.about.grid{
 				padding-top:3% !important;
 				padding-bottom:3% !important;
@@ -92,10 +117,21 @@
 				<a class="item" href="products.html">产品汇</a>
 				<a class="item" href="articles.html">观点王</a>
 				<a class="item" href="smart.html">智能体验馆</a>
-				<a class="item" href="about.html">关于鼎兴</a>
+				<a class="item active" href="about.html">关于鼎兴</a>
 				<a class="item" href="contact.html">联系我们</a>
 			</div>
 		</header>
+		<div class="ui table grid">
+			<div class="ui responsive grid">
+				<div class="row">
+					<div class="ui nine items">
+						<div class="center aligned item">
+							<h5 class="ui header active">公司简介</h5>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 		<section class="ui about responsive grid">
 			<div class="row">
 				<div class="column">
@@ -212,7 +248,7 @@
 				<div class="ui responsive grid">
 					<div class="row">
 						<div class="center aligned column">
-							<p class="copyright"><small>Copyright © 2014 Topct.Co.,Ltd  All rights reserved.&nbsp;&nbsp; 北京鼎兴商贸有限公司保留所有权利 &nbsp;&nbsp;<a href="http://www.miitbeian.gov.cn" class="ui gray link" target="_blank">京ICP备14040676号</a></small></p>
+							<p class="copyright">Copyright © 2014 Topct.Co.,Ltd  All rights reserved.&nbsp;&nbsp; 北京鼎兴商贸有限公司保留所有权利 &nbsp;&nbsp;<a href="http://www.miitbeian.gov.cn" class="ui gray link" target="_blank">京ICP备14040676号</a></p>
 						</div>
 					</div>
 				</div>

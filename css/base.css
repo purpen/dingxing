@@ -6,12 +6,12 @@
 	margin-bottom: 0;
 }
 h1.ui.header{
-	font-size:60px;
+	font-size:48px;
 	letter-spacing:5px;
 	color:#323232;
 }
 h1.ui.header .content .sub.header{
-	font-size:24px;
+	font-size:22px;
 }
 .ui.header > .ui.menu {
 	background-color: #e10000;

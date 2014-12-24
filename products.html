@@ -67,10 +67,7 @@
 				font-size: 14px;
 			}
 			
-			#products {
-				width:1180px;
-				margin:0 auto;
-			}
+			
 			#products a {
 				text-decoration: none;
 			}
@@ -79,7 +76,7 @@
 			}
 			#products a .sub.header{
 				color:#dc5a5a !important;
-				font-size:30px;
+				font-size:22px;
 				margin: 10px auto 15px;
 			}
 			#products .ui.header{
@@ -90,11 +87,46 @@
 			}
 			#products .image img{
 				max-width:100%;
-				margin-bottom: -2px;
+				margin-bottom: -3px;
 			}
 			/*#products .ui.section{
 				margin:2em auto 2em;
 			}*/
+			.ui.table.grid{
+				border-bottom:1px solid #f1f2f5;
+				margin-top:.5em;
+			}
+			.ui.table .item{
+				min-height:0px !important;
+			}
+			.ui.table .row:first-child{
+				padding-left:330px;
+			}
+			.center.aligned{
+				text-align:center;
+			}
+			.ui.table .item h5.ui.header{
+				margin: 1.4em 1.8em 0em;
+				padding-bottom: .6em;
+				font-size:15px;
+			}
+			.ui.table .item h5.ui.header.active{
+				border-bottom: 2px solid #e10000;
+				color:#e10000;
+			}
+			.ui.table .item:hover h5.ui.header{
+				border-bottom:2px solid #e10000;
+				margin: 1.4em 1.8em 0em;
+				padding-bottom: .6em;
+				color:#e10000;
+				font-size:15px;
+			}
+			.ui.table .item{
+				font-size:0px !important;
+			}
+			.ui.table+.ui.table{
+				margin:.5em 0 6rem;
+			}
 			
 		</style>
 		<link rel="stylesheet" href="css/semantic.min.css" type="text/css" />
@@ -108,13 +140,61 @@
 					<img src="images/logo.jpg" alt="鼎兴商贸" />
 				</div>
 				<a class="item" href="index.html">首页</a>
-				<a class="item" href="products.html">产品汇</a>
+				<a class="item active" href="products.html">产品汇</a>
 				<a class="item" href="articles.html">观点王</a>
 				<a class="item" href="smart.html">智能体验馆</a>
 				<a class="item" href="about.html">关于鼎兴</a>
 				<a class="item" href="contact.html">联系我们</a>
 			</div>
 		</header>
+		<div class="ui table grid">
+			<div class="ui responsive grid">
+				<div class="row">
+					<div class="ui nine items">
+						<div class="center aligned item">
+							<h5 class="ui header active">空净产品</h5>
+						</div>
+						<div class="center aligned item">
+							<h5 class="ui header">消毒产品</h5>
+						</div>
+						<div class="center aligned item">
+							<h5 class="ui header">饮用产品</h5>
+						</div>
+						<div class="center aligned item">
+							<h5 class="ui header">智能家居</h5>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="ui table">
+			<div class="ui responsive grid">
+				<div class="row">
+					<div class="ui nine items">
+						<div class="center aligned item">
+							<div class="image">
+								<img src="images/p_1.jpg">
+							</div>
+						</div>
+						<div class="center aligned item">
+							<div class="image">
+								<img src="images/p_2.jpg">
+							</div>
+						</div>
+						<div class="center aligned item">
+							<div class="image">
+								<img src="images/p_3.jpg">
+							</div>
+						</div>
+						<div class="center aligned item">
+							<div class="image">
+								<img src="images/p_4.jpg">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 		
 		<div id="products">
 			<section class="ui lm section">
@@ -255,7 +335,7 @@
 				</div>
 			</section>
 			<section class="ui section">
-				<div class="ui grid">
+				<div class="ui responsive grid">
 					<div class="row">
 						<div class="eight wide column">
 							<div class="image">

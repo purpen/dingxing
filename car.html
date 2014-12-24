@@ -67,13 +67,14 @@
 				font-size: 14px;
 			}
 			
-			#car {
-				width: 1180px;
-				margin: 0 auto;
-			}
 			#car img{
 				width:100%;
-				margin-bottom:-3px;
+			}
+			#car .ui.gary{
+				background:#f1f2f5;
+			}
+			#car .ui.blue{
+				background:#76c5ab;
 			}
 		</style>
 		<link rel="stylesheet" href="css/semantic.min.css" type="text/css" />
@@ -97,14 +98,28 @@
 		
 		
 		<div id="car">
-			<img src="images/products/car_02.jpg">
-			<img src="images/products/car_03.jpg">
-			<img src="images/products/car_04.jpg">
-			<img src="images/products/car_05.jpg">
-			<img src="images/products/car_06.jpg">
-			<img src="images/products/car_07.jpg">
-			<img src="images/products/car_08.jpg">
-			<img src="images/products/car_09.jpg">
+			<section class="ui responsive grid">
+				<img src="images/products/car_01.jpg">
+			</section>
+			<section class="ui responsive grid">
+				<img src="images/products/car_02.jpg">
+			</section>
+			<section class="ui blue grid">
+				<div class="ui responsive grid">
+					<img src="images/products/car_03.jpg">
+				</div>
+			</section>
+			<section class="ui responsive grid">
+				<img src="images/products/car_04.jpg">
+			</section>
+			<section class="ui gary grid">
+				<div class="ui responsive grid">
+					<img src="images/products/car_05.jpg">
+				</div>
+			</section>
+			<section class="ui responsive grid">
+				<img src="images/products/car_06.jpg">
+			</section>
 		</div>
 		
 		<footer id="ft">
