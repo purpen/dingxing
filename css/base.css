@@ -1,3 +1,6 @@
+.ui.grid{
+	margin:0;
+}
 .ui.responsive.grid {
     width:1180px;
 	margin:0 auto !important;
@@ -24,6 +27,15 @@ h1.ui.header .content .sub.header{
     padding: 0 3em;
 	border-radius: 0;
 }
+header.ui.header{
+	background:#e10000;
+}
+.ui.header >.ui.menu{
+	width:1180px;
+	margin:0 auto;
+	-webkit-box-shadow: 0 0 0 0px rgba(0,0,0,.1);
+	box-shadow: 0 0 0 0px rgba(0,0,0,.1);
+}
 .ui.header > .ui.menu > .item {
 	color: #fff;
 }
@@ -39,6 +51,20 @@ h1.ui.header .content .sub.header{
 .ui.header > .ui.menu > .item:first-child:hover,
 .ui.header > .ui.menu > .active.item:first-child {
 	background-color: #e10000;
+}
+.ui.level > .row > .eight.wide:first-child{
+	padding-left:115px;
+}
+.right.aligned{
+	float:right;
+}
+.ui.level a.btn{
+	padding: .6em .8em;
+	font-size: 14px;
+	background: #00b0ff;
+	color: #fff;
+	text-decoration: none;
+	border-radius: 3px;
 }
 
 #frslide {
