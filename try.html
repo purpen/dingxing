@@ -67,15 +67,16 @@
 				font-size: 14px;
 			}
 			
-			#artic .ui.table .row:first-child{
-				margin-left:490px;
-				width:472px !important;
-			}
 			.ui.review{
 				background:url(images/cm_p.jpg) scroll no-repeat center top /cover;
 			}
-			#artic .ui.review .ui.mate{
-				padding: 200px 100px 300px;
+			.ui.items>.item>.content{
+				padding:8px 4px !important;
+			}
+			.ui.items .item>.content .advantage {
+				font-size: .75em;
+				margin: .35em 0;
+				font-weight: 400;
 			}
 			.btn-4{
 				font-size: 18px;
@@ -88,64 +89,86 @@
 				position: relative;
 				top: 50px;
 			}
-			.ui.items>.item>.content{
-				padding:8px 4px !important;
-			}
-			.ui.items .item>.content .advantage {
-				font-size: .75em;
-				margin: .35em 0;
-				font-weight: 400;
-			}
 			.ui.pt-24{
 				padding:24px 0 !important;
 			}
-			#artic .uyan{
-				background:url(images/cm_p3.jpg);
-				height:21px;
-				width:21px;
+			
+			
+			
+			#try .ui.table .row:first-child{
+				margin-left:490px;
+				width:472px !important;
+			}
+			#try .ui.review .ui.mate{
+				padding: 145px 100px 245px;
+			}
+			#try p.report{
+				font-size: 16px;
+				color: #fff;
+			}
+			#try p#clock span {
+				color: #fff;
+				background: rgba(0,0,0,.6);
+				padding: 10px 20px;
+				font-size: 25px;
+			}
+			#try p.count {
+				padding: 19px 0;
+			}
+			#try .try-bg{
+				width:376px;
+				height:300px;
+				position:absolute;
+				left:0;
+				top:0;
+				background:url(images/cm_p2.jpg);
+			}
+			#try .trying{
+				width:380px;
+				height:300px;
+				position:absolute;
+				left:0;
+				top:0;
+				background:url(images/trying.png);
+			}
+			#try .try-end{
+				width:380px;
+				height:300px;
+				position:absolute;
+				left:0;
+				top:0;
+				background:url(images/trying_end.png);
+			}
+			#try .row+.row{
+				margin-top:0 !important;
+			}
+			#try .ui.pt-24 .three.items .item .image{
+				width:376px;
+				height:300px;
+			}
+			#try .name p {
 				display: inline-block;
 				float: left;
+				padding: 0 10px;
+				border-right: 1px solid rgba(0,0,0,.3);
+				font-weight: 400;
+				line-height: 17px;
+				font-size:14px;
 			}
-			#artic .mess{
-				background:url(images/cm_p4.jpg);
-				height:21px;
-				width:21px;
-				display: inline-block;
-				float: left;
+			#try .name p:last-child{
+				border:none;
 			}
-			#artic .like{
-				background:url(images/cm_p5.jpg);
-				height:21px;
-				width:21px;
-				display: inline-block;
-				float: left;
-			}
-			#artic .goto{
-				background:url(images/cm_p6.jpg);
-				height:21px;
-				width:21px;
-				display: inline-block;
-				float: right;
-			}
-			#artic .text{
-				font-size: 12px;
-				display: inline-block;
-				float: left;
-				line-height: 21px;
-				padding:0 8px 0 5px;
-			}
-			#artic .ui.pt-24 .ui.three.items .item,#artic .ui.pt-24 .ui.three.items .item:hover{
-				margin-bottom: 24px;
-				border: 1px solid rgba(0,0,0,.1) !important;
-				padding-bottom: 5px;
-				cursor: auto;
+			#try .ui.pt-24 .ui.three.items .item,#try .ui.pt-24 .ui.three.items .item:hover{
+				margin-bottom:24px;
+				border:1px solid rgba(0,0,0,.1) !important;
+				cursor:auto;
 			}
 		</style>
-		<link rel="stylesheet" href="css/semantic.min.css" type="text/css" />
-		<link rel="stylesheet" href="css/base.css" type="text/css" />
+			<link rel="stylesheet" href="css/semantic.min.css" type="text/css" />
+			<link rel="stylesheet" href="css/base.css" type="text/css" />
 	</head>
-	
-	<body id="artic">
+
+	<body id="try">
 		<header class="ui header">
 			<div class="ui menu">
 				<div class="item">
@@ -159,15 +182,16 @@
 				<a class="item" href="contact.html">联系我们</a>
 			</div>
 		</header>
+		
 		<div class="ui table grid">
 			<div class="ui responsive grid">
 				<div class="row">
 					<div class="ui four items">
 						<div class="center aligned item">
-							<h5 class="ui header active">评测</h5>
+							<a href="articles.html"><h5 class="ui header">评测</h5></a>
 						</div>
 						<div class="center aligned item">
-							<a href="try.html"><h5 class="ui header">试用体验</h5></a>
+							<h5 class="ui header active">试用体验</h5>
 						</div>
 						<div class="center aligned item">
 							<a href="topic.html"><h5 class="ui header">产品动态</h5></a>
@@ -181,16 +205,24 @@
 		</div>
 		<section class="ui review grid">
 			<div class="ui responsive mate grid">
+				<p class="count" id="clock"> </p>
 				<img src="images/cm_p1.png">
-				<p><a class="btn-4" href="cm.html">查看详情</a></p>
+				<p class="report">申请数量: 20台  &nbsp;&nbsp;&nbsp;&nbsp; 申请人数: 2000人</p>
+				<p><a class="btn-4" href=" ">申请试用</a></p>
 			</div>
 		</section>
 		<section class="ui pt-24 responsive grid">
 			<div class="row">
+				<h3 class="ui header">往期试用</h3>
+			</div>
+			<div class="row">
 				<div class="ui three items">
 					<div class="item">
 						<div class="image">
-							<img src="images/cm_p2.jpg">
+							<div class="try-bg">
+								<div class="trying">
+								</div>
+							</div>	
 						</div>
 						<div class="content">
 							<h5 class="ui header">全新nut智能寻物防丢贴片——智能寻物防丢小管家
@@ -199,19 +231,18 @@
 								</div>
 							</h5>
 							<div class="name">
-								<div class="uyan"></div>
-								<div class="text">123</div>
-								<div class="mess"></div>
-								<div class="text">22</div>
-								<div class="like"></div>
-								<div class="text">12</div>
-								<div class="goto"></div>
+								<p>数量<br>200</p>
+								<p>关注<br>200</p>
+								<p>试用人数<br>200</p>
 							</div>
 						</div>
 					</div>
 					<div class="item">
 						<div class="image">
-							<img src="images/cm_p2.jpg">
+							<div class="try-bg">
+								<div class="try-end">
+								</div>
+							</div>	
 						</div>
 						<div class="content">
 							<h5 class="ui header">全新nut智能寻物防丢贴片——智能寻物防丢小管家
@@ -220,19 +251,18 @@
 								</div>
 							</h5>
 							<div class="name">
-								<div class="uyan"></div>
-								<div class="text">123</div>
-								<div class="mess"></div>
-								<div class="text">22</div>
-								<div class="like"></div>
-								<div class="text">12</div>
-								<div class="goto"></div>
+								<p>数量<br>200</p>
+								<p>关注<br>200</p>
+								<p>试用人数<br>200</p>
 							</div>
 						</div>
 					</div>
 					<div class="item">
 						<div class="image">
-							<img src="images/cm_p2.jpg">
+							<div class="try-bg">
+								<div class="trying">
+								</div>
+							</div>	
 						</div>
 						<div class="content">
 							<h5 class="ui header">全新nut智能寻物防丢贴片——智能寻物防丢小管家
@@ -241,13 +271,9 @@
 								</div>
 							</h5>
 							<div class="name">
-								<div class="uyan"></div>
-								<div class="text">123</div>
-								<div class="mess"></div>
-								<div class="text">22</div>
-								<div class="like"></div>
-								<div class="text">12</div>
-								<div class="goto"></div>
+								<p>数量<br>200</p>
+								<p>关注<br>200</p>
+								<p>试用人数<br>200</p>
 							</div>
 						</div>
 					</div>
@@ -255,7 +281,10 @@
 				<div class="ui three items">
 					<div class="item">
 						<div class="image">
-							<img src="images/cm_p2.jpg">
+							<div class="try-bg">
+								<div class="trying">
+								</div>
+							</div>	
 						</div>
 						<div class="content">
 							<h5 class="ui header">全新nut智能寻物防丢贴片——智能寻物防丢小管家
@@ -264,19 +293,38 @@
 								</div>
 							</h5>
 							<div class="name">
-								<div class="uyan"></div>
-								<div class="text">123</div>
-								<div class="mess"></div>
-								<div class="text">22</div>
-								<div class="like"></div>
-								<div class="text">12</div>
-								<div class="goto"></div>
+								<p>数量<br>200</p>
+								<p>关注<br>200</p>
+								<p>试用人数<br>200</p>
+							</div>
+						</div>	
+					</div>
+					<div class="item">
+						<div class="image">
+							<div class="try-bg">
+								<div class="try-end">
+								</div>
+							</div>	
+						</div>
+						<div class="content">
+							<h5 class="ui header">全新nut智能寻物防丢贴片——智能寻物防丢小管家
+								<div class="advantage">
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus 
+								</div>
+							</h5>
+							<div class="name">
+								<p>数量<br>200</p>
+								<p>关注<br>200</p>
+								<p>试用人数<br>200</p>
 							</div>
 						</div>
 					</div>
 					<div class="item">
 						<div class="image">
-							<img src="images/cm_p2.jpg">
+							<div class="try-bg">
+								<div class="trying">
+								</div>
+							</div>	
 						</div>
 						<div class="content">
 							<h5 class="ui header">全新nut智能寻物防丢贴片——智能寻物防丢小管家
@@ -285,52 +333,18 @@
 								</div>
 							</h5>
 							<div class="name">
-								<div class="uyan"></div>
-								<div class="text">123</div>
-								<div class="mess"></div>
-								<div class="text">22</div>
-								<div class="like"></div>
-								<div class="text">12</div>
-								<div class="goto"></div>
-							</div>
-						</div>
-					</div>
-					<div class="item">
-						<div class="image">
-							<img src="images/cm_p2.jpg">
-						</div>
-						<div class="content">
-							<h5 class="ui header">全新nut智能寻物防丢贴片——智能寻物防丢小管家
-								<div class="advantage">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus 
-								</div>
-							</h5>
-							<div class="name">
-								<div class="uyan"></div>
-								<div class="text">123</div>
-								<div class="mess"></div>
-								<div class="text">22</div>
-								<div class="like"></div>
-								<div class="text">12</div>
-								<div class="goto"></div>
+								<p>数量<br>200</p>
+								<p>关注<br>200</p>
+								<p>试用人数<br>200</p>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			
 		</section>
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+			
 		<footer id="ft">
 			<div class="fto">
 				<div class="ui responsive grid">
@@ -430,6 +444,13 @@
 		<script type="text/javascript" src="javascript/jquery-2.min.js"></script>
 		<script type="text/javascript" src="javascript/semantic.min.js"></script>
 		<script type="text/javascript" src="javascript/sly.js"></script>
+		<script type="text/javascript" src="javascript/jquery.countdown.js"></script>
+		<script type="text/javascript">
+		      $(function(){
+		        $('#clock').countdown({//counter与Body区域的DIV标签名相同
+		          startTime: '01:12:12:00'//此次自定义倒计时开始时间
+		        });
+		</script>
 		<script type="text/javascript">
 		<!--
 		$(function(e){
@@ -468,8 +489,22 @@
 		
 				$frame.sly('reload');
 			});
+			$('#clock').countdown('2015/1/1 23:59:59').on('update.countdown', function(event){
+					var $this = $(this).html(event.strftime(''
+					+ '<span>%D 天 %H 时 %M 分 %S 秒</span> '));
+				});
 		});
 		//-->
 		</script>
 	</body>
-</html>
+</html>	
+			
+			
+	
+			
+			
+			
+			
+			
+			
+			

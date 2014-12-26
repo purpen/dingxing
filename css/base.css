@@ -52,6 +52,43 @@ header.ui.header{
 .ui.header > .ui.menu > .active.item:first-child {
 	background-color: #e10000;
 }
+.center.aligned{
+	text-align:center;
+}
+.ui.table .item h5.ui.header{
+	margin: 1.4em 1.8em 0em;
+	padding-bottom: .6em;
+	font-size:15px;
+}
+.ui.table .item h5.ui.header.active{
+	border-bottom: 2px solid #e10000;
+	color:#e10000;
+}
+.ui.table .item:hover h5.ui.header{
+	border-bottom:2px solid #e10000;
+	margin: 1.4em 1.8em 0em;
+	padding-bottom: .6em;
+	color:#e10000;
+	font-size:15px;
+}
+.ui.table .item{
+	font-size:0px !important;
+}
+.ui.table.grid{
+	border-bottom:1px solid #f1f2f5;
+	margin-top:.5em;
+	margin-bottom: 1em;
+}
+.ui.table .item{
+	min-height:0px !important;
+}
+.ui.table .ui.four.items .item a{
+	text-decoration:none;
+	color: #5d6266;
+}
+.ui.table .item:hover a{
+	color:#e10000;
+}
 .ui.level > .row > .eight.wide:first-child{
 	padding-left:115px;
 }

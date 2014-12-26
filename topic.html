@@ -67,85 +67,60 @@
 				font-size: 14px;
 			}
 			
-			#artic .ui.table .row:first-child{
+			#topic .ui.table .row:first-child{
 				margin-left:490px;
 				width:472px !important;
 			}
-			.ui.review{
-				background:url(images/cm_p.jpg) scroll no-repeat center top /cover;
-			}
-			#artic .ui.review .ui.mate{
-				padding: 200px 100px 300px;
-			}
-			.btn-4{
-				font-size: 18px;
-				color: #fff;
-				text-decoration: none;
-				padding: .8em 2em;
-				background: rgba(0,0,0,0);
-				border: 1px solid #fff;
-				border-radius: 3px;
-				position: relative;
-				top: 50px;
-			}
-			.ui.items>.item>.content{
-				padding:8px 4px !important;
-			}
-			.ui.items .item>.content .advantage {
-				font-size: .75em;
-				margin: .35em 0;
-				font-weight: 400;
-			}
-			.ui.pt-24{
-				padding:24px 0 !important;
-			}
-			#artic .uyan{
+			.ui.topic .uyan{
 				background:url(images/cm_p3.jpg);
 				height:21px;
 				width:21px;
 				display: inline-block;
 				float: left;
 			}
-			#artic .mess{
+			.ui.topic .mess{
 				background:url(images/cm_p4.jpg);
 				height:21px;
 				width:21px;
 				display: inline-block;
 				float: left;
 			}
-			#artic .like{
+			.ui.topic .like{
 				background:url(images/cm_p5.jpg);
 				height:21px;
 				width:21px;
 				display: inline-block;
 				float: left;
 			}
-			#artic .goto{
-				background:url(images/cm_p6.jpg);
-				height:21px;
-				width:21px;
-				display: inline-block;
-				float: right;
-			}
-			#artic .text{
-				font-size: 12px;
+			.ui.topic .text{
+				font-size: 14px;
 				display: inline-block;
 				float: left;
 				line-height: 21px;
 				padding:0 8px 0 5px;
+				color: rgba(0,0,0,.4);
 			}
-			#artic .ui.pt-24 .ui.three.items .item,#artic .ui.pt-24 .ui.three.items .item:hover{
-				margin-bottom: 24px;
-				border: 1px solid rgba(0,0,0,.1) !important;
-				padding-bottom: 5px;
-				cursor: auto;
+			.ui.topic .world {
+				display: block;
+				clear: both;
+				font-size: 15px;
+				color: rgba(0,0,0,.4);
+				padding-top: 10px;
 			}
+			.ui.topic .advantage {
+				padding-top: 10px;
+			}
+			.ui.topic{
+				padding:24px 0 !important;
+			}
+			
+		
 		</style>
 		<link rel="stylesheet" href="css/semantic.min.css" type="text/css" />
 		<link rel="stylesheet" href="css/base.css" type="text/css" />
 	</head>
 	
-	<body id="artic">
+	<body id="topic">
 		<header class="ui header">
 			<div class="ui menu">
 				<div class="item">
@@ -159,18 +134,19 @@
 				<a class="item" href="contact.html">联系我们</a>
 			</div>
 		</header>
+		
 		<div class="ui table grid">
 			<div class="ui responsive grid">
 				<div class="row">
 					<div class="ui four items">
 						<div class="center aligned item">
-							<h5 class="ui header active">评测</h5>
+							<a href="articles.html"><h5 class="ui header">评测</h5></a>
 						</div>
 						<div class="center aligned item">
 							<a href="try.html"><h5 class="ui header">试用体验</h5></a>
 						</div>
 						<div class="center aligned item">
-							<a href="topic.html"><h5 class="ui header">产品动态</h5></a>
+							<h5 class="ui header active">产品动态</h5>
 						</div>
 						<div class="center aligned item">
 							<h5 class="ui header">线下活动</h5>
@@ -179,157 +155,79 @@
 				</div>
 			</div>
 		</div>
-		<section class="ui review grid">
-			<div class="ui responsive mate grid">
-				<img src="images/cm_p1.png">
-				<p><a class="btn-4" href="cm.html">查看详情</a></p>
-			</div>
-		</section>
-		<section class="ui pt-24 responsive grid">
+		
+		<section class="ui topic responsive grid">
 			<div class="row">
-				<div class="ui three items">
-					<div class="item">
-						<div class="image">
-							<img src="images/cm_p2.jpg">
-						</div>
-						<div class="content">
-							<h5 class="ui header">全新nut智能寻物防丢贴片——智能寻物防丢小管家
-								<div class="advantage">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus 
-								</div>
-							</h5>
-							<div class="name">
-								<div class="uyan"></div>
-								<div class="text">123</div>
-								<div class="mess"></div>
-								<div class="text">22</div>
-								<div class="like"></div>
-								<div class="text">12</div>
-								<div class="goto"></div>
-							</div>
-						</div>
-					</div>
-					<div class="item">
-						<div class="image">
-							<img src="images/cm_p2.jpg">
-						</div>
-						<div class="content">
-							<h5 class="ui header">全新nut智能寻物防丢贴片——智能寻物防丢小管家
-								<div class="advantage">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus 
-								</div>
-							</h5>
-							<div class="name">
-								<div class="uyan"></div>
-								<div class="text">123</div>
-								<div class="mess"></div>
-								<div class="text">22</div>
-								<div class="like"></div>
-								<div class="text">12</div>
-								<div class="goto"></div>
-							</div>
-						</div>
-					</div>
-					<div class="item">
-						<div class="image">
-							<img src="images/cm_p2.jpg">
-						</div>
-						<div class="content">
-							<h5 class="ui header">全新nut智能寻物防丢贴片——智能寻物防丢小管家
-								<div class="advantage">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus 
-								</div>
-							</h5>
-							<div class="name">
-								<div class="uyan"></div>
-								<div class="text">123</div>
-								<div class="mess"></div>
-								<div class="text">22</div>
-								<div class="like"></div>
-								<div class="text">12</div>
-								<div class="goto"></div>
-							</div>
-						</div>
-					</div>
+				<div class="eight wide column">
+					<img src="images/cm_t.jpg">
 				</div>
-				<div class="ui three items">
-					<div class="item">
-						<div class="image">
-							<img src="images/cm_p2.jpg">
-						</div>
-						<div class="content">
-							<h5 class="ui header">全新nut智能寻物防丢贴片——智能寻物防丢小管家
-								<div class="advantage">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus 
-								</div>
-							</h5>
-							<div class="name">
+				<div class="eight wide column">
+					<div class="content">
+						<h4 class="ui header">
+							酷品推荐】Pawly宠物智能玩具：让你与宠物心贴心
+							<div class="advantage">
+								<div class="text">2014-09-23  &nbsp;&nbsp;13:20&nbsp;&nbsp;</div>
 								<div class="uyan"></div>
 								<div class="text">123</div>
 								<div class="mess"></div>
 								<div class="text">22</div>
 								<div class="like"></div>
 								<div class="text">12</div>
-								<div class="goto"></div>
+								<div class="world">作为首款家庭智能影院，坚果G1采用了行业顶尖的DLP优质光学投影，可以为用户提供最高达300寸的巨幅影像，支持1080P全高清视频，还可播放3D蓝光片源。笔者第一时间拿到了坚果工程机，为大家带来高清美图和详细评测！</div>
 							</div>
-						</div>
-					</div>
-					<div class="item">
-						<div class="image">
-							<img src="images/cm_p2.jpg">
-						</div>
-						<div class="content">
-							<h5 class="ui header">全新nut智能寻物防丢贴片——智能寻物防丢小管家
-								<div class="advantage">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus 
-								</div>
-							</h5>
-							<div class="name">
-								<div class="uyan"></div>
-								<div class="text">123</div>
-								<div class="mess"></div>
-								<div class="text">22</div>
-								<div class="like"></div>
-								<div class="text">12</div>
-								<div class="goto"></div>
-							</div>
-						</div>
-					</div>
-					<div class="item">
-						<div class="image">
-							<img src="images/cm_p2.jpg">
-						</div>
-						<div class="content">
-							<h5 class="ui header">全新nut智能寻物防丢贴片——智能寻物防丢小管家
-								<div class="advantage">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus 
-								</div>
-							</h5>
-							<div class="name">
-								<div class="uyan"></div>
-								<div class="text">123</div>
-								<div class="mess"></div>
-								<div class="text">22</div>
-								<div class="like"></div>
-								<div class="text">12</div>
-								<div class="goto"></div>
-							</div>
-						</div>
+						</h4>
 					</div>
 				</div>
 			</div>
-			
 		</section>
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+		<section class="ui topic responsive grid">
+			<div class="row">
+				<div class="eight wide column">
+					<img src="images/cm_t.jpg">
+				</div>
+				<div class="eight wide column">
+					<div class="content">
+						<h4 class="ui header">
+							酷品推荐】Pawly宠物智能玩具：让你与宠物心贴心
+							<div class="advantage">
+								<div class="text">2014-09-23  &nbsp;&nbsp;13:20&nbsp;&nbsp;</div>
+								<div class="uyan"></div>
+								<div class="text">123</div>
+								<div class="mess"></div>
+								<div class="text">22</div>
+								<div class="like"></div>
+								<div class="text">12</div>
+								<div class="world">作为首款家庭智能影院，坚果G1采用了行业顶尖的DLP优质光学投影，可以为用户提供最高达300寸的巨幅影像，支持1080P全高清视频，还可播放3D蓝光片源。笔者第一时间拿到了坚果工程机，为大家带来高清美图和详细评测！</div>
+							</div>
+						</h4>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="ui topic responsive grid">
+			<div class="row">
+				<div class="eight wide column">
+					<img src="images/cm_t.jpg">
+				</div>
+				<div class="eight wide column">
+					<div class="content">
+						<h4 class="ui header">
+							酷品推荐】Pawly宠物智能玩具：让你与宠物心贴心
+							<div class="advantage">
+								<div class="text">2014-09-23  &nbsp;&nbsp;13:20&nbsp;&nbsp;</div>
+								<div class="uyan"></div>
+								<div class="text">123</div>
+								<div class="mess"></div>
+								<div class="text">22</div>
+								<div class="like"></div>
+								<div class="text">12</div>
+								<div class="world">作为首款家庭智能影院，坚果G1采用了行业顶尖的DLP优质光学投影，可以为用户提供最高达300寸的巨幅影像，支持1080P全高清视频，还可播放3D蓝光片源。笔者第一时间拿到了坚果工程机，为大家带来高清美图和详细评测！</div>
+							</div>
+						</h4>
+					</div>
+				</div>
+			</div>
+		</section>
 		
 		<footer id="ft">
 			<div class="fto">
@@ -473,3 +371,8 @@
 		</script>
 	</body>
 </html>
+		
+		
+		
+		
+		
