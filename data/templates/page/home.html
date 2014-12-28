@@ -1,0 +1,597 @@
+{%extends 'layout/column.html'%}
+
+{% block page_css %}
+<style type="text/css">
+	*, *:after, *:before {
+		box-sizing:border-box;
+		-moz-box-sizing:border-box; /* Firefox */
+		-webkit-box-sizing:border-box; /* Safari */
+	}
+	article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+		display: block;
+	}
+	.hero .slidee li > div.container {
+	    margin: 0 auto;
+	    max-width: 1920px;
+	}
+	
+	@media only screen and (min-width: 990px) and (max-width:1040px){
+		.ui.grid>.column{
+			padding-right:0 !important;
+			padding-left:0 !important;
+		}
+	}	
+	.ui.grid>.column{
+		padding-right:1.2%;
+		padding-left:1.2%;
+	}
+	header.main .search.item{
+		width:30%;
+	}
+	
+	.response{
+		position: fixed;
+		right: 10px;
+		top: 47%;
+		width: 118px;
+		background: rgba(0,0,0,0);
+		transition: 0.3s;
+		-webkit-transition: 0.3s;
+		-moz-transition: 0.3s;
+		z-index: 111;
+	}
+	.response img{
+		border:1px solid rgba(0,0,0,.1);
+		border-bottom:none;
+	}
+	.response .attention{
+		text-align: center;
+		background: #f36;
+		padding: 3px;
+		color: #fff;
+		margin-top:-3px;
+		font-size: 12px;
+		line-height: 17px;
+	}
+	
+	
+	a:link,a:visited{text-decoration:none;}
+	a:hover{text-decoration:none;}
+	ul{list-style:none;margin:0;padding:0}
+	.menu_zzjs_net{float:left;padding-top:2px;width:100%;padding-bottom: 5px;border-bottom: 1px solid rgba(0,0,0,.3);}
+	.menu_zzjs_net li{float:left;}
+	.menu_zzjs_net li a{display:block;float:left;color:#fff;height:25px;line-height:25px;padding:0 2.5em;margin-left:2px;}
+	.menu_zzjs_net .this_zzjs a {color:#f36!important;}
+	.sub_zzjs{clear:both;border-top:none;}
+	.sub_zzjs ul{display:none;line-height:180%;}
+	.sub_zzjs li {
+	border-bottom: 1px solid rgba(0,0,0,.3);
+	padding: 4px 15px;
+	white-space: initial;
+	}
+	.ui.avatar.image {
+	margin-right: 8px!important;
+	}
+	i.settings.icon {
+	font-size: 1.5em !important;
+	padding-top: 5px;
+	}
+	ul li.borf{
+	    border-bottom:0px solid #fff;
+	}
+	ul li .flr{
+	    float:right;
+	}
+	ul li.borf a:hover{
+	    text-decoration:underline;
+	}
+	.ui.dropdown .menu .item:first-child {
+	    padding-bottom: .2em!important;
+	}
+</style>
+{% endblock %}
+
+{% block jquery %}
+	var a=e(window).height(),s=e(window).width();
+	if(s > 960 && s <= 1024){
+		a = 690;
+	}else if(s > 768 && s <= 960){
+		a = 500;
+	}else if(s <= 768){
+		a = 450;
+	}
+	e(".hero").height(a-80);
+	e(".hero .slidee li").width(s);
+	
+	var $frame = $('#frame');
+	var $wrap = $frame.parent();
+	
+	// Call Sly on frame
+	$frame.sly({
+		horizontal: 1,
+		itemNav: 'forceCentered',
+		itemSelector: '.hero .slidee li',
+		smart:1,
+		
+		activateMiddle:1,
+		activateOn:"click",
+		
+		// Automated cycling
+		cycleBy: "items",
+		cycleInterval: 3500,
+		pauseOnHover:1,
+		
+		prev:".hero .prev",
+		next:".hero .next",
+		
+		// Dragging
+		mouseDragging: 1,
+		touchDragging: 1,
+		elasticBounds: 1,
+		releaseSwing: 1,
+		
+		// Mixed options
+		startAt:0,
+		speed: 1200,
+		easing: "easeOutExpo",
+		keyboardNavBy: "items"
+		
+	});
+	
+	$(window).resize(function(e) {
+		var s=$(window).width(),a=$(window).height();
+		if(s > 960 && s <= 1024){
+			a = 690;
+		}else if(s > 768 && s <= 960){
+			a = 500;
+		}else if(s <= 768){
+			a = 450;
+		}
+		
+		$(".hero").height(a-80);
+		$(".hero .slidee li").width(s);
+		
+		$frame.sly('reload');
+	});
+	
+	$('.schedule .count[data-countdown]').each(function() {
+		var $this = $(this), finalDate = $(this).data('countdown');
+		$this.countdown(finalDate, function(event) {
+			$this.html(event.strftime('%-D'));
+		});
+	});
+	$('.vote .timer[data-countdown]').each(function() {
+		var $this = $(this), finalDate = $(this).data('countdown');
+		$this.countdown(finalDate, function(event) {
+			$this.html(event.strftime('<div class="item"><div class="number">%D</div><div class="unit">天</div></div><div class="item"><div class="number">%H</div><div class="unit">时</div></div> <div class="item"><div class="number">%M</div><div class="unit">分</div></div><div class="green item"><div class="number">%S</div><div class="unit">秒</div></div>'));
+		});
+	});
+	
+	// 分享按钮
+	phenix.bind_share_list();
+	
+	skrollr.init({
+		forceHeight: false,
+		mobileCheck:function(){},
+		mobileDeceleration:0.004,
+	});	
+{% endblock %}
+
+{% block content %}
+<div id="homepage">
+	<div class="response hide-on-mobile" data-650="transform: scale(0,0);opacity:0;" data-651="transform: scale(1,1);opacity:1;">
+		<img src="{{ app_url_packaged }}/images/dimension.jpg" width="100%" />
+		<div class="attention">
+			关注太火鸟
+		</div>
+	</div>
+	<div class="hero">
+		<div id="frame">
+			<ul class="slidee">
+				
+				<li class="slide-1" style="background-image: url('{{ app_url_packaged }}/images/dreamk.jpg'); background-color: rgb(240, 221, 101);">
+					<div class="clearfix container">
+						<div class="hero-main inverted verticalize-container">
+		                    <div class="verticalize bottom">
+		                        <a class="ui btn-4 btn-4c icon-arrow-right black btn" href="{{ app_url_domain }}/promo/dreamk">
+									<span>正在抢购</span>
+								</a>
+		                    </div>
+		                </div>
+					</div>
+				</li>
+				
+				<li class="slide-1" style="background-image: url('{{ app_url_packaged }}/images/kidswatch.jpg'); background-color: rgb(240, 221, 101);">
+					<div class="clearfix container">
+						<div class="hero-main verticalize-container">
+		                    <div class="verticalize">
+		                        <span>关爱有加 Caring儿童的守护宝（10个免费申请）</span>
+		                        <h1>智能儿童手表</h1>
+		                        <a class="ui btn-4 btn-4c icon-arrow-right btn" href="{{ app_url_domain }}/sale/1112607802.html">
+									<span>了解更多</span>
+								</a>
+		                        <a class="ui btn-4 btn-4c icon-arrow-right btn" href="{{ app_url_domain }}/try/view-5.html">
+									<span>免费试用</span>
+								</a>
+		                    </div>
+		                </div>
+					</div>
+				</li>
+				
+				<li class="slide-1" style="background-image: url('{{ app_url_packaged }}/images/dream.jpg'); background-color: rgb(238, 43, 75);">
+					<div class="clearfix container">
+						<div class="hero-main verticalize-container">
+		                    <div class="verticalize">
+		                        <span>￥1，000，000梦想资金 坐等你的创意！</span>
+		                        <h1>创意征集活动</h1>
+		                        <a class="ui btn-4 btn-4c icon-arrow-right btn" href="{{ app_url_domain }}/dream">
+									<span>了解更多</span>
+								</a>
+		                        <a class="ui btn-4 btn-4c icon-arrow-right btn" href="{{ app_url_domain }}/dream">
+									<span>火热开启</span>
+								</a>
+		                    </div>
+		                </div>
+					</div>
+				</li>
+				
+				<li class="slide-2" style="background-image: url('{{ app_url_packaged }}/images/milk.jpg'); background-color: rgb(133, 175, 75);">
+					<div class="clearfix container">
+						<div class="hero-main verticalize-container">
+		                    <div class="verticalize">
+		                        <span>解决新手爸妈的喂奶问题</span>
+		                        <h1>婴萌首款智能配奶机</h1>
+		                        <a class="ui btn-4 btn-4c icon-arrow-right btn" href="http://www.taihuoniao.com/sale/1111546391.html">
+									<span>了解更多</span>
+								</a>
+		                        <a class="ui btn-4 btn-4c icon-arrow-right btn" href="http://hi.taobao.com/market/hi/detail2014.php?spm=a215p.1260087.0.0.7qBDsK&id=4528" target="_blank">
+									<span>火热预定</span>
+								</a>
+		                    </div>
+		                </div>
+					</div>
+				</li>
+				
+				<li class="slide-3" style="background-image: url('{{ app_url_packaged }}/images/newair.jpg'); background-color: rgb(0, 172, 255);">
+					<div class="clearfix container">
+						<div class="hero-main verticalize-container">
+		                    <div class="verticalize">
+		                        <span>把世界最好的空气带回家</span>
+		                        <h1>造梦者迷你新风机</h1>
+		                        <a class="ui btn-4 btn-4c icon-arrow-right btn" href="http://www.taihuoniao.com/sale/1111545979.html">
+									<span>了解更多</span>
+								</a>
+		                        <a class="ui btn-4 btn-4c icon-arrow-right btn" href="http://hi.taobao.com/market/hi/detail2014.php?spm=a215p.1260087.0.0.7qBDsK&id=4585" target="_blank">
+									<span>火热预定</span>
+								</a>
+		                    </div>
+		                </div>
+					</div>
+				</li>
+				
+				<li class="slide-4" style="background-image: url('{{ app_url_packaged }}/images/doouya.jpg'); background-color: rgb(235, 97, 122);">
+					<div class="clearfix container">
+						<div class="hero-main verticalize-container">
+		                    <div class="verticalize">
+		                        <span>专注儿童健康的智能体温计-宝宝健康，妈妈不再担心</span>
+		                        <h1>Smart Bean</h1>
+		                        <a class="ui btn-4 btn-4c icon-arrow-right btn" href="{{ app_url_domain }}/sale/1101259495.html">
+									<i class="basic cart icon"></i><span>现在订购</span>
+								</a>
+		                        <a class="ui btn-4 btn-4c icon-arrow-right btn" href="{{ app_url_domain }}/topic/subject?id=1101259495">
+									<i class="basic community icon"></i><span>话题讨论</span>
+								</a>
+		                    </div>
+		                </div>
+					</div>
+				</li>
+				
+				<li class="slide-5" style="background-image: url('{{ app_url_packaged }}/images/clabox.jpg'); background-color: rgb(235, 97, 122);">
+					<div class="clearfix container">
+						<div class="hero-main verticalize-container">
+		                    <div class="verticalize">
+		                        <span>全球首创美妆移动电源，化妆充电两不误！</span>
+		                        <h1>魔镜-美妆移动电源</h1>
+		                        <a class="ui btn-4 btn-4c icon-arrow-right btn" href="{{ app_url_domain }}/try/view-4.html">
+									<span>免费试用</span><i class="icon-arrow-right-sharp"></i>
+								</a>
+		                        <a class="ui btn-4 btn-4c icon-arrow-right btn" href="{{ app_url_domain }}/sale/1100197074.html">
+									<span>现在订购</span><i class="icon-arrow-right-sharp"></i>
+								</a>
+		                    </div>
+		                </div>
+					</div>
+				</li>
+				
+				<li class="slide-6" style="background-image: url('{{ app_url_packaged }}/images/fire.jpg'); background-color: rgb(255, 47, 81);">
+					<div class="clearfix container">
+						<div class="hero-main verticalize-container">
+		                    <div class="verticalize">
+								<span>我们一起，让创意之火燎原</span>
+								<h1>点火•产品创意征集令</h1>
+		                        <a class="ui btn-4 btn-4c icon-arrow-right btn" href="{{ app_url_domain }}/fire">
+									<span>了解更多</span><i class="icon-arrow-right-sharp"></i>
+								</a>
+		                        <a class="ui btn-4 btn-4c icon-arrow-right btn" href="{{ app_url_about }}">
+									<span>关于太火鸟</span><i class="icon-arrow-right-sharp"></i>
+								</a>
+		                    </div>
+		                </div>
+					</div>
+				</li>
+				
+			</ul>
+		</div>
+		<a class="prev" href="#">
+			<i class="flat arrow_left icon"></i>
+		</a>
+		<a class="next" href="#">
+			<i class="flat arrow_right icon"></i>
+		</a>
+	</div>
+	
+	<section class="ui small block">
+		<div class="ui responsive grid">
+			<div class="row">
+				<div class="column">
+					<h3 class="ui header">预售商品</h3>
+				</div>
+			</div>
+			<div class="row">
+				<div class="column">
+					{% product_list var:'list' process_presaled:1 only_approved:1 only_onsale:1 only_stick:1 size:3 %}
+					<div class="ui three items">
+						{% for product in list.rows %}
+					  		{% include "block/product_presale_item.html" %}
+					    {% endfor %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="ui small white background hotsale block">
+		<div class="ui responsive grid">
+			<div class="row">
+				<div class="column">
+					<h3 class="ui header">热门商品 <small>我们用心挑选数以万计的创意产品，为你每次的一见钟情</small></h3>
+				</div>
+			</div>
+			<div class="row">
+				<div class="column">
+					{% product_list var:'list' process_saled:1 only_approved:1 only_onsale:1 only_stick:1 size:3 %}
+					<div class="ui three items">
+						{% for product in list.rows %}
+					  		{% include "block/product_item.html" %}
+					    {% endfor %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	<section class="ui small vote block">
+		<div class="ui responsive grid" id="votelist">
+			<div class="row">
+				<div class="column">
+					<h3 class="ui header">创意投票 <small>没有你的支持，这世界将失去一个伟大的产品</small></h3>
+				</div>
+			</div>
+			<div class="content row">
+				<div class="center aligned column">
+					<div class="ui three items">
+						{% product_list var:'list' process_voted:1 only_approved:1 only_onsale:1 size:6 %}
+						{% for product in list.rows %}
+							{% include "block/product_vote_item.html" %}
+						{% endfor %}
+					</div>
+					<div class="actions" data-2150="transform: translateY(100px);opacity:0;" data-2250="transform: translateY(0px);opacity:1;">
+						<a href="{{ app_url_fever }}" class="ui magenta btn-4 btn-4c icon-arrow-right btn">
+							全部创意
+						</a>
+						<a href="{{ app_url_fever }}/submit?step=1" class="ui active magenta btn-4 btn-4c icon-arrow-right btn">
+							提交创意
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	<section class="ui small topic white background block">
+		<div class="ui responsive grid">
+			<div class="row">
+				<div class="column">
+					<h3 class="ui header">社区话题 <small>创意与创意的碰撞，会员与会员的交流，为你每次的一吐为快</small></h3>
+				</div>
+			</div>
+			<div class="two column row">
+				<div class="column">
+					{% ad_list var:'ad' page:1 size:1 name:'home_page_topic' sort_field:'latest' %}
+					{% if ad %}
+					<div class="advert content">
+						<a href="{{ ad.view_url }}" title="{{ ad.title }}" target="_blank">
+				      		<img src="{{ ad.cover.fileurl }}" class="ui image" />
+						</a>
+						<div class="bword">
+							<a href="{{ ad.view_url }}" title="{{ ad.title }}" class="ui link" target="_blank">{{ ad.title|truncate 60 '' }}</a>
+						</div>
+					</div>
+					{% endif %}
+				</div>
+				<div class="column">
+					{% topic_list var:'list' type:1 page:1 size:6 %}
+					<div class="ui divided stick list">
+						{% for topic in list.rows %}
+					  	<div class="item">
+							<div class="right floated compact ui label">{{ topic.view_count }}</div>
+					    	<div class="content">
+					      	  	<a class="ui header link" href="{{ topic.view_url }}" title="{{ topic.title }}">{{ topic.title|truncate 42 }}</a>
+					      		<div class="description">
+									<ul class="ui horizontal bulleted link list">
+										<li class="item"><a href="{{ topic.user.home_url }}" class="ui user link">@{{ topic.user.nickname }}</a></li>
+										<li class="item">{{ topic.created_on|relative_datetime }} 发表</li>
+										{% if topic.last_user %}
+										<li class="item">{{ topic.last_reply_time|relative_datetime }} 回复</li>
+										{% endif %}
+									</ul>
+								</div>
+					    	</div>
+					  	</div>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	<section class="ui hide big white background block">
+		<div class="ui responsive grid">
+			<div class="row">
+				<div class="center aligned column section-title">
+					<h3 class="ui header">我们的社区</h3>
+					<p>分享第一手产品资讯，创意与创意的碰撞，会员与会员的交流，为你每次的一吐为快。</p>
+					<hr>
+				</div>
+			</div>
+			<div class="row">
+				<div class="center aligned column">
+					<div class="ui four social items">
+						<div class="item" data-1400="transform: translateY(500px);opacity:0;" data-1880="transform: translateY(0px);opacity:1;">
+							<div class="image">
+								<img src="{{ app_url_packaged }}/images/sq01.jpg" class="ui image" />
+								<a class="transparent" href="{{ app_url_topic }}/c11">
+									<h3 class="ui header" data-2000="transform: translateY(200px);opacity:0;" data-2100="transform: translateY(0px);opacity:1;">
+										<div class="content">
+											最新动态
+											<div class="sub header">
+												你总是需要多了解一些正在发生着的有关科技创意好玩的事
+											</div>
+										</div>
+									</h3>
+								</a>
+							</div>
+						</div>
+						<div class="item" data-1400="transform: translateY(500px);opacity:0;" data-1930="transform: translateY(0px);opacity:1;">
+							<div class="image">
+								<img src="{{ app_url_packaged }}/images/sq02.jpg" class="ui image" />
+								<a class="transparent" href="{{ app_url_topic }}/c12">
+									<h3 class="ui header" data-2000="transform: translateY(200px);opacity:0;" data-2150="transform: translateY(0px);opacity:1;">
+										<div class="content">
+											产品专区
+											<div class="sub header">
+												我们用专业的数据说明，让你更了解产品的优缺点
+											</div>
+										</div>
+									</h3>
+								</a>
+							</div>
+						</div>
+						<div class="item" data-1400="transform: translateY(500px);opacity:0;" data-1980="transform: translateY(0px);opacity:1;">
+							<div class="image">
+								<img src="{{ app_url_packaged }}/images/sq03.jpg" class="ui image" />
+								<a class="transparent" href="{{ app_url_topic }}/c13">
+									<h3 class="ui header" data-2000="transform: translateY(200px);opacity:0;" data-2200="transform: translateY(0px);opacity:1;">
+										<div class="content">
+											奇思妙想
+											<div class="sub header">
+												新奇的想法、怪怪的想法、笨笨的想法、好想法、坏想法……
+											</div>
+										</div>
+									</h3>
+								</a>
+							</div>
+						</div>
+						<div class="item" data-1400="transform: translateY(500px);opacity:0;" data-2030="transform: translateY(0px);opacity:1;">
+							<div class="image">
+								<img src="{{ app_url_packaged }}/images/sq04.jpg" class="ui image" />
+								<a class="transparent" href="{{ app_url_topic }}/c14">
+									<h3 class="ui header" data-2000="transform: translateY(200px);opacity:0;" data-2250="transform: translateY(0px);opacity:1;">
+										<div class="content">
+											活动&吐槽
+											<div class="sub header">
+												只要发自内心的想去吐槽，槽点自然而然会呈现在你眼前
+											</div>
+										</div>
+									</h3>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="ui big succase block">
+		<div class="ui responsive grid">
+			<div class="row">
+				<div class="column section-title">
+					<h3 class="ui header">成功案例 <small>从一个构想到一次成功的运营，在这里，每一个鲜活品牌的成功都是一次传奇</small></h3>
+				</div>
+			</div>
+			<div class="row">
+				<div class="center aligned column">
+					<div class="ui three items">
+						<div class="item" data-2100="transform: translateY(500px);opacity:0;" data-2480="transform: translateY(0px);opacity:1;">
+							<div class="image">
+								<a href="{{ app_url_action_base }}/guide/cm" title="厘米空气净化器">
+						      		<img src="{{ app_url_packaged }}/images/case-cm.jpg" class="ui image" />
+								</a>
+							</div>
+							<div class="content">
+								<h4 class="ui header">
+									<a href="{{ app_url_action_base }}/guide/cm" title="厘米空气净化器" class="ui link">厘米空气净化器</a>
+								</h4>
+								<div class="name">
+									众筹金额:<span class="ui text">2126,720</span>      支持人数:<span class="ui text">602</span>        达成率:<span class="ui text">4253％</span>    
+								</div>
+							</div>
+						</div>
+				
+						<div class="item" data-2100="transform: translateY(500px);opacity:0;" data-2560="transform: translateY(0px);opacity:1;">
+							<div class="image">
+								<a href="{{ app_url_action_base }}/guide/dm" title="全球首款革命性智能空气净化器">
+						      		<img src="{{ app_url_packaged }}/images/case-dm.jpg" class="ui image" />
+								</a>
+							</div>
+							<div class="content">
+								<h4 class="ui header">
+									<a href="{{ app_url_action_base }}/guide/dm" title="全球首款革命性智能空气净化器" class="ui link">全球首款革命性智能空气净化器</a>
+								</h4>
+								<div class="name">
+									众筹金额:<span class="ui text">1215,983</span>      支持人数:<span class="ui text">243</span>       达成率:<span class="ui text">4053％</span>    
+								</div>
+							</div>
+						</div>
+				
+						<div class="item" data-2100="transform: translateY(500px);opacity:0;" data-2640="transform: translateY(0px);opacity:1;">
+							<div class="image">
+								<a href="{{ app_url_action_base }}/guide/goccia" title="Goccia－全球最小的智能可穿戴">
+						      		<img src="{{ app_url_packaged }}/images/case-goccia.jpg" class="ui image" />
+								</a>
+							</div>
+							<div class="content">
+								<h4 class="ui header">
+									<a href="{{ app_url_action_base }}/guide/goccia" title="Goccia－全球最小的智能可穿戴" class="ui link">Goccia－全球最小的智能可穿戴</a>
+								</h4>
+								<div class="name">
+									众筹金额:<span class="ui text">300,000</span>      支持人数:<span class="ui text">610</span>      达成率:<span class="ui text">600％</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="more row">
+				<div class="center aligned column">
+					<a href="{{ app_url_action_base }}/guide/succase" class="ui magenta btn-4 btn-4c icon-arrow-right btn" data-2800="background-color:rgba(255,255,255,1);color:rgba(255,51,102,1);" data-2950="background-color:rgba(255,51,102,1);color:rgba(255,255,255,1);">
+						查看更多
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+</div>
+{% endblock %}

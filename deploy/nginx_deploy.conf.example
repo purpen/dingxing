@@ -1,0 +1,60 @@
+server {
+    listen       80;
+    server_name  topct.cn;
+    charset utf-8;
+    location / {
+        rewrite ^(.*)$ http://www.taihuoniao.com$1 last;
+    }
+}
+
+server {
+        listen       80;
+        #edit this!
+        server_name  www.topct.cn;
+        charset utf-8;
+        index  app;
+        root /www/dx/web;
+
+        error_page  404              /app/site/helper/not_found;
+		
+        # url rewrite rules
+        location /site {
+		  rewrite ^/site/(.*)$ /app/site/index/$1 last;  
+        }
+		
+        location /topic {
+          	rewrite ^/topic[/]?$ /app/site/topic last;
+          	rewrite ^/topic/c(\d+)[/]?$ /app/site/topic/get_list?category_id=$1 last;
+          	rewrite ^/topic/c(\d+)/t(\d+)[/]?$ /app/site/topic?category_id=$1&type=$2 last;
+          	rewrite ^/topic/c(\d+)/p(\d+)[/]?$ /app/site/topic?category_id=$1&page=$2 last;
+          	rewrite ^/topic/c(\d+)/t(\d+)/p(\d+).*$ /app/site/topic?category_id=$1&type=$2&page=$3 last;
+          	rewrite ^/topic/list-c(\d+)-t(\d+)-d(\d+)-t(\d)-p(\d+).*$ /app/site/topic?category_id=$1&type=$2&time=$3&sort=$4&page=$5 last;
+          	rewrite ^/topic/view-(\d+).html$ /app/site/topic/view?id=$1 last;
+          	rewrite ^/topic/view-(\d+)-(\d+).html$ /app/site/topic/view?id=$1&page=$2 last;
+          	rewrite ^/topic(.*)$ /app/site/topic$1 last;
+        }
+
+		location /search {
+		     rewrite ^/search[/]?$ /app/site/search last;
+		     rewrite ^/search/([^/]+)[/]?$ /app/site/search?q=$1 last;
+		     rewrite ^/search/(\d+)/([^/]+)/p(\d+).html$ /app/site/search?t=$1&q=$2&page=$3 last;
+		}
+
+        location /tag {
+		    rewrite /tag(\/*)$ /tags/ last;
+		    rewrite /tag/([^/]+)/p(\d+)/([a-zA-Z_]+)[/]?$ /app/site/search/tag?q=$1&page=$2&sort=$3 last;
+		    rewrite /tag/([^/]+)[/]?$ /app/site/search/tag?q=$1 last;
+		}
+
+        location /auth {
+	    	rewrite ^/auth/(login|signup|forget)[/]?$ /app/site/auth/$1 last;
+            rewrite ^/auth(.*)$ /app/site/auth$1 last;
+		}
+		
+		location /__file_result__/ {
+	        internal;
+	        alias /;
+		}
+
+        include phpbackend.conf;
+}

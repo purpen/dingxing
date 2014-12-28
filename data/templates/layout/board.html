@@ -1,0 +1,27 @@
+{% extends 'layout/base.html' %}
+
+{% block title%}{% endblock %}
+{% block layout_css %}{% endblock %}
+{% block page_css %}{% endblock %}
+{% block layout_js %}{% endblock %}
+{% block layout_jquery %}{% endblock %}
+{% block jquery %}{% endblock %}
+
+{% block layout_header %}
+<div class="header main">
+	<div class="ui responsive grid">
+		{% include "block/header.html" %}
+	</div>
+</div>
+{% endblock %}
+
+{% block layout_content %}
+<div id="bd">
+	<div id="ajax-note"></div>
+    {% block content %}{% endblock %}
+</div>
+{% endblock %}
+
+{% block layout_footer %}
+	{% include "block/footer.html" %}
+{% endblock %}

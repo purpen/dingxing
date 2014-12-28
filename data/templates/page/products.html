@@ -1,0 +1,352 @@
+{%extends 'layout/column.html'%}
+
+{% block page_css %}
+<style type="text/css">
+	body {
+	    color: #5d6266;
+	    min-width: 320px;
+		margin: 0;
+		font-size: 14px;
+		font-family: "Microsoft YaHei",tahoma,arial,"Hiragino Sans GB",宋体,sans-serif;
+	}
+	.clearfix:after {content: "."; display: block;clear: both; visibility: hidden;line-height: 0; height: 0;}
+	.clearfix {display: inline-table; +display:inline-block;}/* Hides from IE-mac \*/* html .clearfix {height: 1%;}.clearfix {display: block;}
+
+	#ft {
+		background: none repeat scroll 0 0 #545454;
+		padding: 1em 0 2em;
+		color:#fff;
+	}
+	#ft .ui.list .item {
+		display: block;
+		font-size: 1em;
+		padding: .3em 0;
+		letter-spacing: 2px;
+	}
+	#ft a{
+		text-decoration: none;
+		color:#fff;
+	}
+	#ft a:hover {
+		text-decoration: underline;
+		color:red;
+	}
+	#ft .ftline{
+		display:inline-block;
+	}
+	#ft .ftline .sina{
+		opacity:0;
+		position:absolute;
+		top:42px;
+		-webkit-transition: all .3s ease .1s;
+		transition: all .3s ease .1s;
+	}
+	#ft .ftline:hover .sina{
+		opacity:1;
+		position:absolute;
+		top:42px;
+	}
+	#ft .fto{
+		margin: auto auto 3em!important;
+	}
+	#ft .copyright {
+		font-size: .875em;
+	}
+	#ft a.ui.link.item {
+		font-size: 14px;
+	}
+	
+	#products a {
+		text-decoration: none;
+	}
+	#products a:hover .sub.header{
+		color:red !important;
+	}
+	#products a .sub.header{
+		color:#dc5a5a !important;
+		font-size:22px;
+		margin: 10px auto 15px;
+	}
+	#products .ui.header{
+		margin-bottom:1em !important;
+	}
+	#products .ui.gray.section{
+		background:#f1f2f5;
+	}
+	#products .image img{
+		max-width:100%;
+		margin-bottom: -3px;
+	}
+	/*#products .ui.section{
+		margin:2em auto 2em;
+	}*/
+	#dingx .ui.table .row:first-child{
+		margin-left:340px;
+		width:520px !important;
+	}
+	
+	#dingx .ui.table+.ui.table{
+		margin:.5em 0 6rem;
+	}
+	.p-air{
+		width: 126px;
+		height: 196px;
+	}
+	.p-air .cm{
+		width: 126px;
+		height: 196px;
+		background:url(/images/p_1.jpg) no-repeat scroll center center /cover;
+		position:absolute;
+		left:0;
+		top:0;
+	}
+	.p-air .lcm{
+		width: 126px;
+		height: 196px;
+		background:url(/images/p_2.jpg) no-repeat scroll center center /cover;
+		position:absolute;
+		left:0;
+		top:0;
+	}
+	.p-air .xkl{
+		width: 126px;
+		height: 196px;
+		background:url(/images/p_3.jpg) no-repeat scroll center center /cover;
+		position:absolute;
+		left:0;
+		top:0;
+	}
+	.p-air .dkl{
+		width: 126px;
+		height: 196px;
+		background:url(/images/p_4.jpg) no-repeat scroll center center /cover;
+		position:absolute;
+		left:0;
+		top:0;
+	}
+</style>
+{% endblock %}
+
+{% block jquery %}
+	
+{% endblock %}
+
+{% block content %}
+	<div class="ui table grid">
+		<div class="ui responsive grid">
+			<div class="row">
+				<div class="ui four items">
+					<div class="center aligned item">
+						<h5 class="ui header active">空净产品</h5>
+					</div>
+					<div class="center aligned item">
+						<h5 class="ui header">消毒产品</h5>
+					</div>
+					<div class="center aligned item">
+						<h5 class="ui header">饮用产品</h5>
+					</div>
+					<div class="center aligned item">
+						<h5 class="ui header">智能家居</h5>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="ui table">
+		<div class="ui responsive grid">
+			<div class="row">
+				<div class="ui four items">
+					<div class="center aligned item">
+						<div class="p-air">
+							<a href="cm.html"><div class="cm"></div></a>
+						</div>
+					</div>
+					<div class="center aligned item">
+						<div class="image">
+							<div class="p-air">
+								<a href="lcm.html"><div class="lcm"></div></a>
+							</div>
+						</div>
+					</div>
+					<div class="center aligned item">
+						<div class="image">
+							<div class="p-air">
+								<a href="xkl.html"><div class="xkl"></div></a>
+							</div>
+						</div>
+					</div>
+					<div class="center aligned item">
+						<div class="image">
+							<div class="p-air">
+								<a href="dkl.html"><div class="dkl"></div></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div id="products">
+		<section class="ui lm section">
+			<div class="ui responsive grid">
+				<div class="row">
+					<div class="center aligned column">
+						<div class="image">
+							<img src="/images/dx_p5.jpg">
+						</div>
+						<h3 class="ui header">
+							<a href="cm.html">
+								<div class="sub header">
+									进一步了解产品 >
+								</div>
+							</a>
+						</h3>
+						<div class="image">
+							<img src="/images/dx_p2.jpg">
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="ui gray section">
+			<div class="ui responsive grid">
+				<div class="row">
+					<div class="center aligned column">
+						<div class="image">
+							<img src="/images/dx_p6.png">
+						</div>
+						<h3 class="ui header">
+							<a href="lcm.html">
+								<div class="sub header">
+									进一步了解产品 >
+								</div>
+							</a>
+						</h3>
+						<div class="image">
+							<img src="/images/dx_p4.png">
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="ui small section">
+			<div class="ui responsive grid">
+				<div class="row">
+					<div class="eight wide column">
+						<div class="image">
+							<img src="/images/dx_p7.jpg">
+						</div>
+					</div>
+					<div class="eight wide column">
+						<div class="image">
+							<img src="/images/dx_p8.jpg">
+						</div>
+						<!--<div class="image">
+							<a href=""><img src="/images/1.jpg"></a>
+						</div>-->
+						<h3 class="ui header">
+							<a href="xkl.html">
+								<div class="sub header">
+									进一步了解产品 >
+								</div>
+							</a>
+						</h3>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="ui gray section">
+			<div class="ui responsive grid">
+				<div class="row">
+					<div class="eight wide column">
+						<div class="image">
+							<img src="/images/dx_p9.png">
+						</div>
+						<h3 class="ui header">
+							<a href="dkl.html">
+								<div class="sub header">
+									进一步了解产品 >
+								</div>
+							</a>
+						</h3>
+					</div>
+					<div class="eight wide column">
+						<div class="image">
+							<img src="/images/dx_p10.png">
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="ui section">
+			<div class="ui responsive grid">
+				<div class="row">
+					<div class="eight wide column">
+						<div class="image">
+							<img src="/images/dx_p11.jpg">
+						</div>
+					</div>
+					<div class="eight wide column">
+						<div class="image">
+							<img src="/images/dx_p12.jpg">
+						</div>
+						<h3 class="ui header">
+							<a href="water.html">
+								<div class="sub header">
+									进一步了解产品 >
+								</div>
+							</a>
+						</h3>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="ui gray section">
+			<div class="ui responsive grid">
+				<div class="row">
+					<div class="eight wide column">
+						<div class="image">
+							<img src="/images/dx_p13.png">
+						</div>
+						<h3 class="ui header">
+							<a href="car.html">
+								<div class="sub header">
+									进一步了解产品 >
+								</div>
+							</a>
+						</h3>
+					</div>
+					<div class="eight wide column">
+						<div class="image">
+							<img src="/images/dx_p14.png">
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="ui section">
+			<div class="ui responsive grid">
+				<div class="row">
+					<div class="eight wide column">
+						<div class="image">
+							<img src="/images/dx_p15.jpg">
+						</div>
+					</div>
+					<div class="eight wide column">
+						<div class="image">
+							<img src="/images/dx_p16.jpg">
+						</div>
+						<h3 class="ui header">
+							<a href="">
+								<div class="sub header">
+									进一步了解产品 >
+								</div>
+							</a>
+						</h3>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+{% endblock %}

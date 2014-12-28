@@ -1,0 +1,51 @@
+{%extends 'layout/board.html'%}
+{% block page_css %}
+<style type="text/css">
+	
+	
+</style>
+{% endblock %}
+{% block js %}
+{% endblock %}
+{% block jquery %}
+	
+{% endblock %}
+{% block content %}
+<div class="helper">
+	<div class="ui responsive grid">
+		<div class="row">
+			<div class="ui column">
+				<h4>测试页面</h4>					
+				<img src="http://frbird.qiniudn.com/avatar/140513/5371839a5771dba901ba0c76-1"  width="10%"/>
+				
+				<form action="{{app_url_action_base}}/uploader/crop_avatar" method="post" class="ui form">
+					<input type="hidden" name="token" value="{{ accessToken }}" />
+					
+					<input type="hidden" name="bucket" value="frbird" />
+					<input type="hidden" name="key" value="asset/140510/536e2c2e0c28aafe7f0c36e2-1" />
+					<input type="hidden" name="fops" value="{{ fops }}" />
+					
+					{% if img_url %}
+					<img src="{{ img_url }}" />
+					{% endif %}
+					
+					<input type="submit" name="submit" class="ui button" value="确定" />
+				</form>
+				
+			</div>
+		</div>
+	</div>
+</div>
+
+
+		<section class="ui plan block" id="frame">
+			<ul class="slidee">
+				<li class="slide-1" style="background: url('{{ app_url_packaged }}/images/match/match_bg_2.jpg') scroll center center no-repeat;background-size:cover;">	
+				</li>
+				<li class="slide-2" style="background: url('{{ app_url_packaged }}/images/match/match_bg_3.jpg') scroll center center no-repeat;background-size:cover;">
+					
+				</li>
+			</ul>
+		</section>
+		
+{% endblock %}

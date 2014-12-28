@@ -1,0 +1,115 @@
+---
+app.id: 'sher'
+app.version: '1.0'
+app.modules.boot: 'sher'
+
+app.modules.sher: 
+  state: 'on'
+  namespace: 'Sher_App'
+  index_action: 'Index'
+  
+app.modules.admin: 
+  state: 'on'
+  namespace: 'Sher_Admin'
+  index_action: 'Console'
+
+app.dispatcher.routes:
+app.dispatcher.result.map:
+  redirect: 'Doggy_Dispatcher_Result_Redirect'
+  json: 'Doggy_Dispatcher_Result_Json'
+  file: 'Doggy_Dispatcher_Result_File'
+  raw: 'Doggy_Dispatcher_Result_Raw'
+  jquery: 'Doggy_Dispatcher_Result_JQuery'
+  dt: 'DoggyX_View_HtmlPage'
+  html: 'DoggyX_View_HtmlPage'
+  taconite: 'DoggyX_View_TaconitePage'
+  rss: 'DoggyX_View_RssPage'
+  mongofs: 'DoggyX_View_MongoFs'
+
+app.dispatcher.interceptors.run:
+  - Doggy_Dispatcher_Interceptor_Parameters
+  - Doggy_Dispatcher_Interceptor_UploadSupport
+  - Sher_Core_Interceptor_XSession
+  - DoggyX_Interceptor_BeforeInvoke
+
+app.session.ttl: 1800
+app.session.service: 'Sher_Core_Session_Service'
+app.session.engine: 'DoggyX_Session_Engine_Mongo'
+app.session.online_ttl: 600
+app.session.engine.options:
+   # mongodb session optional:
+   'collection': 'session'
+app.session.sid: 'sher_sid'
+#auth cookie:
+app.session.auth_sid: 'sher_asid'
+
+# 序列编号表
+app.serialno.name: 'serialno'
+
+app.mongodb_host: 'mongodb://127.0.0.1'
+app.mongodb_rs: false
+# mongodb
+app.mongo.default:
+  host: '127.0.0.1'
+  db: 'topct'
+  replicaSet: false
+  
+# redisdb
+app.redis_host: 'localhost:6379'
+
+app.dt.extension_lib.sher_app:
+  tags:
+    'category_list':'Sher_Core_ViewTag_CategoryList'
+    'topic_list':'Sher_App_ViewTag_TopicList'
+    'asset_list':'Sher_App_ViewTag_AssetList'
+    'pager':'Sher_App_ViewTag_Pager'
+  filters: []
+
+app.js.use_bundle: false
+app.css.use_bundle: false
+
+# Qiniu API
+app.qiniu.key: 'ERh7qjVSy0v42bQ0fftrFeKYZG39XbzRlaJO4NFy'
+app.qiniu.secret: 'r-NUrKsnRBEwTQxbLONVrK9tPuncXyHmcq4BkSc7'
+app.qiniu.bucket: 'frbird'
+
+
+app.keychains.private: 'xxxxOOOOxxxx'
+app.email.from:
+  address: 'no-reply@taihuoniao.com'
+  name: '系统邮件服务'
+
+# 产品话题类别
+app.system.user_id: 1
+
+# 关注最大数
+app.follow.max: 2000
+
+# 附件存储目录
+app.storage.sher:
+    class:'Doggy_Storage_Provider_FileSystem'
+    options:
+        root:"/Users/xiaoyi/data/uploads"
+        root_url:'http://img.taihuoniao.me'
+        hash_dir:false
+
+# 图片缩络图
+app.asset.thumbnails:
+	mini: 120x120
+	tiny: 160x120
+	small: 280x210
+	medium: 320x240
+	large: 580x435
+	big: 700x525
+	huge: 900x
+	massive: 1024x768
+	
+app.asset.avatars:
+  big: 360
+  medium: 180
+  small: 100
+  mini: 50
+  
+app.word.filter:
+  seword: tmd|sex|色情|妈的|奶奶的|日你|TNND|她娘的
+

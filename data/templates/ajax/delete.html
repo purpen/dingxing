@@ -1,0 +1,10 @@
+<taconite>
+	{% for id in ids %}
+	<remove select="#{{id}}" />
+	{% endfor %}
+	{% if redirect_url %}
+		<eval>
+			phenix.redirect('{{ redirect_url }}',500);
+		</eval>
+	{% endif %}
+</taconite>

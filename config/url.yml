@@ -1,0 +1,163 @@
+---
+app.domain.base: 'http://topct.me'
+app.domain.static: 'http://static.topct.me'
+app.domain.app: '{$app.domain.base}'
+
+app.url.domain:         '{$app.domain.base}'
+app.url.action_base:    '{$app.domain.app}/app/site'
+app.url.admin_base:    '{$app.domain.app}/app/admin'
+
+app.domain.mobile: 'http://m.taihuoniao.me'
+app.url.mobile: '{$app.domain.mobile}'
+app.url.wap: '{$app.domain.mobile}'
+
+#wap
+app.url.wap.social: '{$app.url.wap}/social'
+app.url.wap.social.list : '{$app.url.wap.social}/list'
+app.url.wap.social.show: '{$app.url.wap.social}/show-%s-%s.html'
+app.url.wap.shop: '{$app.url.wap}/shop'
+app.url.wap.shop.view: '{$app.url.wap}/shop/%s.html'
+app.url.wap.my: '{$app.url.wap}/my'
+app.url.wap.auth: '{$app.url.wap}/auth'
+
+app.url.static: '{$app.domain.static}'
+app.url.packaged: '{$app.domain.static}/packaged'
+app.url.uncompressed: '{$app.domain.static}/uncompressed'
+
+app.url.js:     '{$app.url.packaged}/js'
+app.url.css:    '{$app.url.packaged}/css'
+app.url.images: '{$app.url.packaged}/images'
+
+app.url.bundle: '{$app.domain.base}/bundle'
+
+
+# 首页
+app.url.welcome: '{$app.url.action_base}/index/welcome'
+app.url.index:	'{$app.url.domain}'
+
+# tag,分类,搜索
+app.url.tags: '/tags'
+app.url.tag: '/tag'
+
+# 预售
+app.url.sale: '{$app.url.domain}/sale'
+app.url.sale.list: '{$app.url.sale}'
+app.url.sale.view: '{$app.url.sale}/%s.html'
+
+# 商店
+app.url.shop: '{$app.url.domain}/shop'
+app.url.shop.list: '{$app.url.shop}'
+app.url.shop.view: '{$app.url.shop}/%s.html'
+
+# 社区
+app.url.social: '{$app.url.domain}/social'
+
+app.url.topic: '{$app.url.domain}/topic'
+app.url.topic.list : '{$app.url.topic}/list-c%s-t%s-d%s-t%s-p%s.html'
+app.url.topic.view: '{$app.url.topic}/view-%s-%s.html'
+app.url.product.subject: '{$app.url.topic}/subject?id=%s&page=%s'
+
+# 产品编辑
+app.url.product: '{$app.url.action_base}/product'
+
+# 社区创意投票
+app.url.fever: '{$app.url.domain}/fever'
+app.url.fever.list: '{$app.url.fever}/list-c%s-t%s-s%s-p%s.html'
+app.url.fever.view: '{$app.url.fever}/%s.html'
+
+# 购物及支付
+app.url.shopping: '{$app.url.domain}/shopping'
+app.url.cart: '{$app.url.shopping}/cart'
+app.url.cart.buy: '{$app.url.shopping}/buy'
+app.url.cart.nowbuy: '{$app.url.shopping}/now_buy'
+
+# 地址薄
+app.url.address: '{$app.url.action_base}/address'
+
+# 收藏
+app.url.favorite: '{$app.url.action_base}/favorite'
+
+# 附件管理
+app.url.asset: '{$app.url.action_base}/asset'
+
+# 推荐广告
+app.url.advertise.view: '{$app.url.action_base}/tracker?kid=%s'
+
+# 七牛存储
+app.url.qiniu.upload: 'http://up.qiniu.com'
+app.url.qiniu.frbird: 'http://frbird.qiniudn.com'
+app.url.qiniu.frstatic: 'http://frstatic.qiniudn.com'
+app.url.qiniu.assets: '{$app.url.action_base}/asset'
+app.url.qiniu.onelink: '{$app.url.action_base}/asset/qiniu_onelink'
+
+# 本地存储
+app.url.upload: '{$app.url.qiniu.upload}'
+app.url.upload.product: '{$app.url.upload}/product'
+app.url.upload.topic: '{$app.url.upload}/topic'
+app.url.upload.pictures: '{$app.url.upload}/pictures'
+
+#个人中心
+app.url.my:				'{$app.url.domain}/my'
+app.url.my.message:		'{$app.url.domain}/my/message'
+app.url.my.orders: '{$app.url.domain}/my/orders'
+app.url.my.order_view: '{$app.url.domain}/my/order_view?rid=%s'
+
+#个人主页
+app.url.user:			'{$app.url.domain}/user'
+app.url.user.love:		'{$app.url.domain}/user/%s/love'
+app.url.user.album:		'{$app.url.domain}/user/%s/album'
+app.url.user.view:		'{$app.url.user}/%s'
+
+#在线支付
+app.url.alipay: '{$app.url.action_base}/alipay'
+app.url.tenpay: '{$app.url.action_base}/tenpay'
+app.url.quickpay: '{$app.url.action_base}/quickpay'
+
+#评论
+app.url.comment:		'{$app.url.action_base}/comment'
+
+#登录,登出,注册,忘记密码,输入邀请码
+app.url.auth:		'{$app.url.domain}/auth'
+app.url.login: 		'{$app.url.auth}/login'
+app.url.logout: 	'{$app.url.auth}/logout'
+app.url.register: 	'{$app.url.auth}/signup'
+app.url.forget: 	'{$app.url.auth}/forget'
+app.url.invite: 	'{$app.url.auth}/invite'
+
+app.url.qq.login: '{$app.url.action_base}/qq'
+
+#管理面板
+app.url.admin:		'{$app.url.admin_base}'
+app.url.admin.report: '{$app.url.admin_base}/report'
+app.url.admin.reply: '{$app.url.admin_base}/reply'
+
+# 附件图片查看地址
+app.url.thumb: 		'/uploads/%s'
+app.url.asset_view: '/app/site/asset/view?id=%s'
+
+# 搜索
+app.url.search: 	'{$app.url.domain}/search'
+app.url.search_tag: '{$app.url.domain}/search/search_tag?q='
+
+# 默认的缩略图url
+app.url.default_thumb_small: '{$app.url.images}/pic_50x50.gif'
+app.url.default_thumb_middle: '{$app.url.images}/pic_180x180.gif'
+app.url.default_thumb_big: '{$app.url.images}/pic_580x580.gif'
+app.url.default_thumb_middle_height: 180
+
+# 帮助中心
+app.url.helper: '{$app.url.action_base}/helper'
+
+app.url.guide: '{$app.url.action_base}/guide'
+app.url.about: '{$app.url.guide}/about'
+app.url.contact: '{$app.url.guide}/contact'
+app.url.join: '{$app.url.guide}/join'
+
+# 图片分享
+app.url.share: '{$app.url.domain}/share'
+app.url.stuff: '{$app.url.domain}/idea'
+app.url.stuff.view: '{$app.url.stuff}/%s'
+
+# guide
+app.url.guide: '{$app.url.action_base}/guide'
+
