@@ -1,0 +1,44 @@
+---
+# app.db.default: 'mysql://root:@localhost/test?charset=utf8'
+#if in production mode,uncomment and change it to 'prod'
+app.mode: 'dev'
+# app.dt:
+  # cache: 'MemFile'
+  # cache_dir: '/tmp/lgk'
+
+app.url.upload_url: '{$app.domain.app}/uploader'
+
+app.doggyx.class_path: '/Users/xiaoyi/project/doggy-x'
+
+app.url.packaged: '{$app.domain.static}'
+
+app.js.use_bundle: 0
+app.css.use_bundle: 0
+
+# redisdb
+app.redis.default: 
+    host: '127.0.0.1'
+    port: 6379
+
+app.cache.memcached.default:
+  servers:
+    - 
+      host: '127.0.0.1'
+      port: 11211
+      weight: 1
+
+
+# 七牛存储（开发环境使用本地存储）
+app.url.qiniu.upload: '{$app.url.action_base}/uploader'
+
+app.url.upload: '{$app.url.qiniu.upload}'
+app.url.upload.product: '{$app.url.upload}/product'
+app.url.upload.topic: '{$app.url.upload}/topic'
+app.url.upload.pictures: '{$app.url.upload}/pictures'
+app.url.upload.avatar: '{$app.url.upload}/avatar'
+app.url.upload.dotry: '{$app.url.upload}/dotry'
+app.url.upload.advertise: '{$app.url.upload}/advertise'
+
+# 临时数据存储目录
+app.storage.tmpdir: '/Users/xiaoyi/data/export'
+

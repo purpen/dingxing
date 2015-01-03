@@ -1,0 +1,102 @@
+{%extends 'layout/column.html'%}
+
+{% block page_css %}
+<style type="text/css">
+	#articles {
+		margin: 2em auto;
+	}
+	.ui.items {
+		font-size: 14px;
+	}
+	.ui.items > .item > .image:not(.ui) {
+		width: 440px;
+	}
+	.ui.pagination {
+		text-align: center;
+		border-top: 1px solid rgba(39, 41, 43, 0.15);
+		padding: 2em 0;
+	}
+	.ui.big.segment {
+		padding: 1.5em 2.5em;
+	}
+	.post.froala-element {
+		height: auto;
+		overflow-y: hidden;
+		margin-top: 2em;
+	}
+</style>
+{% endblock %}
+
+{% block jquery %}
+	
+{% endblock %}
+
+{% block content %}
+<div id="articles">
+	<section class="ui articles responsive grid">
+		<div class="row">
+			<div class="column">
+				<div class="ui breadcrumb">
+				  	<a class="section" href="{{ app_url_domain }}">首页</a>
+				  	<i class="right chevron icon divider"></i>
+				  	<a class="section" href="{{ app_url_domain }}/topic">观点王</a>
+				  	<i class="right chevron icon divider"></i>
+				  	<a class="section" href="{{ app_url_domain }}/topic/c{{ topic.category._id }}">{{ topic.category.title }}</a>
+				  	<i class="right chevron icon divider"></i>
+				  	<div class="active section">{{ topic.title }}</div>
+				</div>
+				<div class="ui big topic segment">
+					<div class="ui header">
+						<a class="ui avatar image" href="{{ topic.user.home_url }}">
+				      		<img src="{{ topic.user.small_avatar_url }}" alt="{{ topic.user.nickname }}" />
+						</a>
+						<div class="content">
+							{{ topic.title }}
+							<div class="sub header attribute">
+								<span class="category"><a href="{{ app_url_topic }}/c{{ topic.category._id }}" class="ui link">{{ topic.category.title }}</a></span> | 
+								<span class="date">{{ topic.user.nickname }} 发表于 {{ topic.created_on|relative_datetime }}</span> | 
+								<span class="count">浏览数: {{ topic.view_count }}</span>
+							</div>
+						</div>
+					</div>
+					
+					<div class="post froala-element clearfix">
+						{{ topic.description }}
+					</div>
+					
+					<!--附件列表-->
+					{% asset_list var:'assets' parent_id:topic._id asset_type:50 %}
+					{% if assets.rows %}
+					<div class="post froala-element clearfix">
+						{% for asset in assets.rows %}
+						<p>
+							<img width="" src="{{ asset.thumbnails.hd.view_url }}" alt="{{ topic.title }}" class="fr-fin" />
+						</p>
+						{% endfor %}
+					</div>
+					{% endif %}
+					
+					{% if topic.tags %}
+					<div class="tags">
+						{% for tag in topic.tags %}
+						{% if tag %}
+						<label class="ui label">
+							<i class="tag icon"></i>{{ tag }}
+						</label>
+						{% endif %}
+						{% endfor %}
+					</div>
+					{% endif %}
+					
+				</div>
+				
+			</div>
+		</div>
+		<div class="row">
+			<div class="column">
+				
+			</div>
+		</div>
+	</section>
+</div>
+{% endblock %}

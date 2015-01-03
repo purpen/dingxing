@@ -4,12 +4,6 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
 		<meta name="viewport" content="width=device-width, maximum-scale=1.0">
-		<link href="frbird.qiniudn.com" rel="dns-prefetch">
-		<link href="frstatic.qiniudn.com" rel="dns-prefetch">
-		<meta property="wb:webmaster" content="81aee06b936cdcd8">
-		<meta property="qc:admins" content="2554576457641105761176375">
-		<meta name="baidu_union_verify" content="f533716307633cc500536ab620c726a2">
-		<meta name="360-site-verification" content="7c6bef1e758da3cc0f4e79d444ce2114" />
 		{%block meta%}
 		<meta name="title" content="鼎兴商贸" />
 		<meta name="keywords" content="鼎兴商贸"/>
@@ -20,7 +14,7 @@
 		<link rel="shortcut icon" href="/favicon.ico" />
 		<style type="text/css">
 			body {
-			    background: #f8f8f8;
+				background-color: #fff !important;
 			    color: #5d6266;
 			    min-width: 320px;
 				margin: 0;
@@ -29,54 +23,87 @@
 			}
 			.clearfix:after {content: "."; display: block;clear: both; visibility: hidden;line-height: 0; height: 0;}
 			.clearfix {display: inline-table; +display:inline-block;}/* Hides from IE-mac \*/* html .clearfix {height: 1%;}.clearfix {display: block;}
+			
+			/* latin-ext */
 			@font-face {
-			  font-family: 'FontIcons';
-			  src: url({{ app_url_qiniu_frstatic }}/fonts/icons.eot);
-			  src:
-			    url({{ app_url_qiniu_frstatic }}/fonts/icons.eot?#iefix) format('embedded-opentype'),
-			    url({{ app_url_qiniu_frstatic }}/fonts/icons.svg#icons) format('svg'),
-			    url({{ app_url_qiniu_frstatic }}/fonts/icons.woff) format('woff'),
-			    url({{ app_url_qiniu_frstatic }}/fonts/icons.ttf) format('truetype')
-			  ;
+			  font-family: 'Lato';
 			  font-style: normal;
-			  font-weight: normal;
-			  font-variant: normal;
-			  text-decoration: inherit;
-			  text-transform: none;
+			  font-weight: 400;
+			  src: local('Lato Regular'), local('Lato-Regular'), url(https://fonts.gstatic.com/s/lato/v11/8qcEw_nrk_5HEcCpYdJu8BTbgVql8nDJpwnrE27mub0.woff2) format('woff2');
+			  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+			}
+			/* latin */
+			@font-face {
+			  font-family: 'Lato';
+			  font-style: normal;
+			  font-weight: 400;
+			  src: local('Lato Regular'), local('Lato-Regular'), url(https://fonts.gstatic.com/s/lato/v11/MDadn8DQ_3oT6kvnUq_2rxTbgVql8nDJpwnrE27mub0.woff2) format('woff2');
+			  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+			}
+			/* latin-ext */
+			@font-face {
+			  font-family: 'Lato';
+			  font-style: normal;
+			  font-weight: 700;
+			  src: local('Lato Bold'), local('Lato-Bold'), url(https://fonts.gstatic.com/s/lato/v11/rZPI2gHXi8zxUjnybc2ZQFKPGs1ZzpMvnHX-7fPOuAc.woff2) format('woff2');
+			  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+			}
+			/* latin */
+			@font-face {
+			  font-family: 'Lato';
+			  font-style: normal;
+			  font-weight: 700;
+			  src: local('Lato Bold'), local('Lato-Bold'), url(https://fonts.gstatic.com/s/lato/v11/MgNNr5y1C_tIEuLEmicLm1KPGs1ZzpMvnHX-7fPOuAc.woff2) format('woff2');
+			  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+			}
+			/* latin-ext */
+			@font-face {
+			  font-family: 'Lato';
+			  font-style: italic;
+			  font-weight: 400;
+			  src: local('Lato Italic'), local('Lato-Italic'), url(https://fonts.gstatic.com/s/lato/v11/cT2GN3KRBUX69GVJ2b2hxn-_kf6ByYO6CLYdB4HQE-Y.woff2) format('woff2');
+			  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+			}
+			/* latin */
+			@font-face {
+			  font-family: 'Lato';
+			  font-style: italic;
+			  font-weight: 400;
+			  src: local('Lato Italic'), local('Lato-Italic'), url(https://fonts.gstatic.com/s/lato/v11/1KWMyx7m-L0fkQGwYhWwun-_kf6ByYO6CLYdB4HQE-Y.woff2) format('woff2');
+			  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+			}
+			/* latin-ext */
+			@font-face {
+			  font-family: 'Lato';
+			  font-style: italic;
+			  font-weight: 700;
+			  src: local('Lato Bold Italic'), local('Lato-BoldItalic'), url(https://fonts.gstatic.com/s/lato/v11/AcvTq8Q0lyKKNxRlL28Rn4X0hVgzZQUfRDuZrPvH3D8.woff2) format('woff2');
+			  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+			}
+			/* latin */
+			@font-face {
+			  font-family: 'Lato';
+			  font-style: italic;
+			  font-weight: 700;
+			  src: local('Lato Bold Italic'), local('Lato-BoldItalic'), url(https://fonts.gstatic.com/s/lato/v11/HkF_qI1x_noxlxhrhMQYEIX0hVgzZQUfRDuZrPvH3D8.woff2) format('woff2');
+			  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
 			}
 			
 			@font-face {
-			  font-family: 'FontBasicIcons';
-			  src: url({{ app_url_qiniu_frstatic }}/fonts/basic.icons.eot);
-			  src:
-			    url({{ app_url_qiniu_frstatic }}/fonts/basic.icons.eot?#iefix) format('embedded-opentype'),
-			    url({{ app_url_qiniu_frstatic }}/fonts/basic.icons.svg#basic.icons) format('svg'),
-			    url({{ app_url_qiniu_frstatic }}/fonts/basic.icons.woff) format('woff'),
-			    url({{ app_url_qiniu_frstatic }}/fonts/basic.icons.ttf) format('truetype')
-			  ;
-
-			  font-style: normal;
-			  font-weight: normal;
-			  font-variant: normal;
-			  text-decoration: inherit;
-			  text-transform: none;
-			}
-			@font-face {
 			  font-family: 'FontAwesome';
-			  src: url('{{ app_url_qiniu_frstatic }}/fonts/fontawesome-webfont.eot');
-			  src: url('{{ app_url_qiniu_frstatic }}/fonts/fontawesome-webfont.eot?#iefix') format('embedded-opentype'), url('{{ app_url_qiniu_frstatic }}/fonts/fontawesome-webfont.woff') format('woff'), url('{{ app_url_qiniu_frstatic }}/fonts/fontawesome-webfont.ttf') format('truetype'), url('{{ app_url_qiniu_frstatic }}/fonts/fontawesome-webfont.svg?#fontawesomeregular') format('svg');
+			  src: url('/fonts/fontawesome-webfont.eot');
+			  src: url('/fonts/fontawesome-webfont.eot?#iefix') format('embedded-opentype'), url('/fonts/fontawesome-webfont.woff') format('woff'), url('/fonts/fontawesome-webfont.ttf') format('truetype'), url('/fonts/fontawesome-webfont.svg?#fontawesomeregular') format('svg');
 			  font-weight: normal;
 			  font-style: normal;
 			}
+			
 		</style>
 		
-		{% if css_use_bundle %}
-			<link rel="stylesheet" href="/css/semantic.min.css" type="text/css" />
-			<link rel="stylesheet" href="/css/base.css" type="text/css" />
-		{% else %}
-			<link rel="stylesheet" href="/css/semantic.min.css" type="text/css" />
-			<link rel="stylesheet" href="/css/base.css" type="text/css" />
-		{% endif %}
+		<link rel="stylesheet" href="/css/semantic.css" type="text/css" />
+		<link rel="stylesheet" href="/css/font-awesome.css" type="text/css" />
+		<link rel="stylesheet" href="/css/froala_editor.css" type="text/css" />
+		<link rel="stylesheet" href="/css/base.css" type="text/css" />
+		
 		{% block layout_css %}{% endblock %}
 		{% block page_css %}{% endblock %}
 		
@@ -90,9 +117,16 @@
 		{% block layout_footer %}
 		{% endblock %}
 		
-		<script type="text/javascript" src="/javascript/jquery-2.min.js"></script>
+		<script type="text/javascript" src="/javascript/jquery-1.11.1.min.js"></script>
 		<script type="text/javascript" src="/javascript/semantic.min.js"></script>
+		<script type="text/javascript" src="/javascript/jquery.taconite.js"></script>
+		<script type="text/javascript" src="/javascript/jquery.livequery.min.js"></script>
+		<script type="text/javascript" src="/javascript/jquery.form.js"></script>
+		<script type="text/javascript" src="/javascript/jquery.imgareaselect.js"></script>
+		<script type="text/javascript" src="/javascript/jquery.bar.js"></script>
+		<script type="text/javascript" src="/javascript/jquery.fineuploader-3.5.0.js"></script>
 		<script type="text/javascript" src="/javascript/sly.js"></script>
+		<script type="text/javascript" src="/javascript/topct.js"></script>
 		
 		{% block layout_js %}{% endblock %}
 		{% block page_js %}{% endblock %}
@@ -100,6 +134,18 @@
 		<script type="text/javascript">
 		<!--
 		$(function(e){			
+			topct.url = {
+				domain: '{{ app_url_domain }}',
+        		css: '{{ app_url_css}}',
+        		js: '{{ app_url_js}}',
+        		images: '{{ app_url_images}}',
+				app_url_action_base: '{{ app_url_action_base }}'
+			};
+			
+			topct.visitor = {{ visitor_json }};
+			
+    		topct.initial();
+			
     		{% block layout_jquery %}{% endblock %}
     		{% block jquery %}{% endblock %}
 		});

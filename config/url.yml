@@ -1,6 +1,6 @@
 ---
 app.domain.base: 'http://topct.me'
-app.domain.static: 'http://static.topct.me'
+app.domain.static: 'http://topct.me'
 app.domain.app: '{$app.domain.base}'
 
 app.url.domain:         '{$app.domain.base}'
@@ -10,15 +10,6 @@ app.url.admin_base:    '{$app.domain.app}/app/admin'
 app.domain.mobile: 'http://m.taihuoniao.me'
 app.url.mobile: '{$app.domain.mobile}'
 app.url.wap: '{$app.domain.mobile}'
-
-#wap
-app.url.wap.social: '{$app.url.wap}/social'
-app.url.wap.social.list : '{$app.url.wap.social}/list'
-app.url.wap.social.show: '{$app.url.wap.social}/show-%s-%s.html'
-app.url.wap.shop: '{$app.url.wap}/shop'
-app.url.wap.shop.view: '{$app.url.wap}/shop/%s.html'
-app.url.wap.my: '{$app.url.wap}/my'
-app.url.wap.auth: '{$app.url.wap}/auth'
 
 app.url.static: '{$app.domain.static}'
 app.url.packaged: '{$app.domain.static}/packaged'
@@ -57,20 +48,6 @@ app.url.topic.list : '{$app.url.topic}/list-c%s-t%s-d%s-t%s-p%s.html'
 app.url.topic.view: '{$app.url.topic}/view-%s-%s.html'
 app.url.product.subject: '{$app.url.topic}/subject?id=%s&page=%s'
 
-# 产品编辑
-app.url.product: '{$app.url.action_base}/product'
-
-# 社区创意投票
-app.url.fever: '{$app.url.domain}/fever'
-app.url.fever.list: '{$app.url.fever}/list-c%s-t%s-s%s-p%s.html'
-app.url.fever.view: '{$app.url.fever}/%s.html'
-
-# 购物及支付
-app.url.shopping: '{$app.url.domain}/shopping'
-app.url.cart: '{$app.url.shopping}/cart'
-app.url.cart.buy: '{$app.url.shopping}/buy'
-app.url.cart.nowbuy: '{$app.url.shopping}/now_buy'
-
 # 地址薄
 app.url.address: '{$app.url.action_base}/address'
 
@@ -85,7 +62,7 @@ app.url.advertise.view: '{$app.url.action_base}/tracker?kid=%s'
 
 # 七牛存储
 app.url.qiniu.upload: 'http://up.qiniu.com'
-app.url.qiniu.frbird: 'http://frbird.qiniudn.com'
+app.url.qiniu.topct: 'https://dn-topct.qbox.me'
 app.url.qiniu.frstatic: 'http://frstatic.qiniudn.com'
 app.url.qiniu.assets: '{$app.url.action_base}/asset'
 app.url.qiniu.onelink: '{$app.url.action_base}/asset/qiniu_onelink'
@@ -98,26 +75,15 @@ app.url.upload.pictures: '{$app.url.upload}/pictures'
 
 #个人中心
 app.url.my:				'{$app.url.domain}/my'
-app.url.my.message:		'{$app.url.domain}/my/message'
-app.url.my.orders: '{$app.url.domain}/my/orders'
-app.url.my.order_view: '{$app.url.domain}/my/order_view?rid=%s'
 
 #个人主页
 app.url.user:			'{$app.url.domain}/user'
-app.url.user.love:		'{$app.url.domain}/user/%s/love'
-app.url.user.album:		'{$app.url.domain}/user/%s/album'
-app.url.user.view:		'{$app.url.user}/%s'
-
-#在线支付
-app.url.alipay: '{$app.url.action_base}/alipay'
-app.url.tenpay: '{$app.url.action_base}/tenpay'
-app.url.quickpay: '{$app.url.action_base}/quickpay'
 
 #评论
 app.url.comment:		'{$app.url.action_base}/comment'
 
 #登录,登出,注册,忘记密码,输入邀请码
-app.url.auth:		'{$app.url.domain}/auth'
+app.url.auth:		'{$app.url.domain}/app/site/auth'
 app.url.login: 		'{$app.url.auth}/login'
 app.url.logout: 	'{$app.url.auth}/logout'
 app.url.register: 	'{$app.url.auth}/signup'

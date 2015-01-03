@@ -1,0 +1,60 @@
+{% extends 'layout/base.html' %}
+{% block title %}管理控制台-{% endblock %}
+{% block layout_css %}
+	<style type="text/css">
+		.ui.responsive.grid {
+		    padding: 0 2%;
+			max-width: 100%;
+		}
+		header.admin {
+			background-color: #fff;
+			border-bottom: 1px solid #e4e5e7;
+		    border-top: 4px solid #ff3366;
+		    padding: 0.5em 0;
+		}
+		header.admin .space {
+			margin-left: 5px;
+			margin-right: 5px;
+		}
+		#bd {
+			margin-bottom: 1em;
+		    margin-top: 1em;
+		    min-height: 26em;
+		}
+		.ui.form .field .description {
+			color: rgba(0,0,0,0.4);
+			font-size: 0.875em;
+		}
+		.page_count {
+		    margin-left: 1em;
+		}
+		.qq-drop-processing {
+		    display: none;
+		}
+	</style>
+{% endblock %}
+{% block page_css %}{% endblock %}
+{% block layout_js %}{% endblock %}
+{% block jquery %}{% endblock %}
+
+{% block layout_header %}
+	{% include "block/header.html" %}
+{% endblock %}
+
+{% block layout_content %}
+<div id="bd">
+	<div id="ajax-note"></div>
+	<div class="ui responsive  grid">
+	  	<div class="three wide column">
+	    	{% include "block/sitebar_admin.html" %}
+	  	</div>
+	  	<div class="thirteen wide column">
+			{% block content %}{% endblock %}
+	  	</div>
+	</div>
+</div>
+{% endblock %}
+
+{% block layout_footer %}
+	{% include "block/footer.html" %}
+{% endblock %}

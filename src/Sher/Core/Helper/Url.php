@@ -8,7 +8,7 @@ class Sher_Core_Helper_Url {
 	 * 云存储 附件URL
 	 */
 	public static function asset_qiniu_view_url($key,$style=null){
-		$asset_url = Doggy_Config::$vars['app.url.qiniu.frbird'].'/'.$key;
+		$asset_url = Doggy_Config::$vars['app.url.qiniu.topct'].'/'.$key;
 		if (!is_null($style)){
 			$asset_url .= '-'.$style;
 		}
@@ -27,7 +27,7 @@ class Sher_Core_Helper_Url {
 	 * 用户头像
 	 */
 	public static function avatar_cloud_view_url($key, $style=null){
-		$avatar_url = Doggy_Config::$vars['app.url.qiniu.frbird'].'/'.$key;
+		$avatar_url = Doggy_Config::$vars['app.url.qiniu.topct'].'/'.$key;
 		if (!is_null($style)){
 			$avatar_url .= '-'.$style;
 		}
@@ -99,35 +99,6 @@ class Sher_Core_Helper_Url {
 	public static function product_subject_url($product_id, $page=1){
 		return sprintf(Doggy_Config::$vars['app.url.product.subject'], $product_id, $page);
 	}
-	
-	/**
-	 * 投票列表访问地址
-	 */
-    public static function vote_list_url($category_id=null, $type=null, $sort=null, $page=null) {
-        if (!is_null($category_id)) {
-            $category_id = 'c'.$category_id;
-        }
-		
-        if (!empty($page)) {
-            $page = "p${page}.html";
-        }
-		
-        return self::build_url_path('app.url.fever', $category_id, $type, $sort).$page;
-    }
-	
-	/**
-	 * 投票列表访问地址,优化URL格式
-	 */
-	public static function vote_advance_list_url($category_id, $type, $sort, $page=1) {
-		return  sprintf(Doggy_Config::$vars['app.url.fever.list'], $category_id, $type, $sort, $page);
-	}
-	
-	/**
-	 * 产品投票查看地址
-	 */
-    public static function vote_view_url($id){
-    	return  sprintf(Doggy_Config::$vars['app.url.fever.view'], $id);
-    }
 	
 	/**
 	 * 产品预售查看地址
@@ -259,79 +230,7 @@ class Sher_Core_Helper_Url {
         }
         return self::build_url_path('app.url.admin.report','state',$state).$page;
     }
-    
-    
 
-	/**
-	 * 我分享的图片地址
-	 */
-    public static function my_share_list_url($page=null) {
-        if (!empty($page)) {
-            $page = "p${page}.html";
-        }
-        return self::build_url_path('app.url.my','share').$page;
-    }
-
-	/**
-	 * 我收藏的图片地址
-	 */
-    public static function my_like_list_url($page=null) {
-        if (!empty($page)) {
-            $page = "p${page}.html";
-        }
-        return self::build_url_path('app.url.my','like').$page;
-    }
-    
-    /**
-     * 我专辑的图片地址
-     */
-    public static function my_album_list_url($page=null) {
-        if (!empty($page)) {
-            $page = "p${page}.html";
-        }
-        return self::build_url_path('app.url.my','album').$page;
-    }
-    
-    /**
-     * 我喜欢的图片地址
-     */
-    public static function my_love_list_url($page=null) {
-        if (!empty($page)) {
-            $page = "p${page}.html";
-        }
-        return self::build_url_path('app.url.my','love').$page;
-    }
-    
-    /**
-     * 我关注的用户列表地址
-     */
-    public static function my_follow_list_url($page=null){
-        if (!empty($page)) {
-            $page = "p${page}.html";
-        }
-        return self::build_url_path('app.url.my','follow').$page;
-    }
-    
-    /**
-     * 我粉丝的用户列表地址
-     */
-    public static function my_fans_list_url($page=null){
-    	if (!empty($page)) {
-            $page = "p${page}.html";
-        }
-        return self::build_url_path('app.url.my','fans').$page;
-    }
-
-    /**
-     * 关注用户分享图片列表
-     */
-    public static function follow_stuff_list_url($page=null){
-        if (!empty($page)) {
-            $page = "p${page}.html";
-        }
-		return self::build_url_path('app.url.stuff','follow').$page;
-    }
-    
 	/**
 	 * 分类访问地址
 	 */

@@ -278,7 +278,7 @@ class Sher_Core_Model_User extends Sher_Core_Model_Base {
     protected function extra_extend_model_row(&$row) {
         $id = $row['id'] = $row['_id'];
 		// 显示名称
-		$row['screen_name'] = !empty($row['nickname']) ? $row['nickname'] : '火鸟人';
+		$row['screen_name'] = !empty($row['nickname']) ? $row['nickname'] : '网友';
 		
 		// 用户头像
 		if(!empty($row['avatar'])){
@@ -294,8 +294,6 @@ class Sher_Core_Model_User extends Sher_Core_Model_Base {
 		}
 		
         $row['home_url'] = Sher_Core_Helper_Url::user_home_url($id);
-        $row['view_follow_url'] = Sher_Core_Helper_Url::user_follow_list_url($id);
-        $row['view_fans_url'] = Sher_Core_Helper_Url::user_fans_list_url($id);
         $row['is_ok'] = $row['state'] == self::STATE_OK;
         if ($row['role_id'] == self::ROLE_SYSTEM){
         	$row['is_system'] = $row['is_admin'] = true;

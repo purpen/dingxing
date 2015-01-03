@@ -13,6 +13,10 @@ class Sher_Core_Model_Topic extends Sher_Core_Model_Base {
 	const STICK_EDITOR = 1;
 	const STICK_HOME = 2;
 	
+	## 状态
+	const STATE_DRAFT = 0;
+	const STATE_PUBLISH = 1;
+	
     protected $schema = array(
 	    'user_id' => null,
 		# 类别支持多选
@@ -22,8 +26,6 @@ class Sher_Core_Model_Topic extends Sher_Core_Model_Base {
 		
 		# 所属产品
 		'target_id' => 0,
-		# 所属评测
-		'try_id' => 0,
 		
 	    'title' => '',
         'description' => '',
@@ -64,13 +66,15 @@ class Sher_Core_Model_Topic extends Sher_Core_Model_Base {
 		# 随机数
 		'random' => 0,
 		
+		'state' => self::STATE_DRAFT,
+		
 		# 最后回复者及回复时间
 		'last_reply_time' => 0,
 		'last_user' => null,
     );
 	
 	protected $required_fields = array('user_id');
-	protected $int_fields = array('user_id','category_id','try_id','fid','gid','deleted','published');
+	protected $int_fields = array('user_id','category_id','fid','gid','deleted','published','state');
 	
 	protected $counter_fields = array('asset_count', 'view_count', 'favorite_count', 'love_count', 'comment_count');
 	
@@ -119,29 +123,8 @@ class Sher_Core_Model_Topic extends Sher_Core_Model_Base {
       if (!empty($fid)) {
         $category->inc_counter('total_count', 1, $fid);
       }
-      
-      $target_id   = $this->data['target_id'];
-      if (!empty($target_id)) {
-        $product = new Sher_Core_Model_Product();
-        $product->inc_counter('topic_count', 1, $target_id);
-        unset($product);
-      }
-      
-      // 更新话题总数
-      Sher_Core_Util_Tracker::update_topic_counter();
-
-      //如果是发布状态,创建动态
-      if ($this->data['published'] == 1) {
-        $timeline = new Sher_Core_Model_Timeline();
-        $arr = array(
-          'user_id' => $this->data['user_id'],
-          'target_id' => (int)$this->data['_id'],
-          'type' => Sher_Core_Model_Timeline::TYPE_TOPIC,
-          'evt' => Sher_Core_Model_Timeline::EVT_POST,
-        );
-        $timeline->create($arr);
-      }
     }
+	
   }
 	
 	/**
@@ -149,7 +132,6 @@ class Sher_Core_Model_Topic extends Sher_Core_Model_Base {
 	 */
 	protected function extra_extend_model_row(&$row) {
 		$row['view_url'] = Sher_Core_Helper_Url::topic_view_url($row['_id']);
-		$row['wap_view_url'] = sprintf(Doggy_Config::$vars['app.url.wap.social.show'], $row['_id'], 0);
 		$row['tags_s'] = !empty($row['tags']) ? implode(',',$row['tags']) : '';
 		
 		if(isset($row['description'])){
@@ -159,6 +141,7 @@ class Sher_Core_Model_Topic extends Sher_Core_Model_Base {
 			// 去除 html/php标签
 			$row['strip_description'] = strip_tags($row['description']);
 		}
+		
 		// 获取封面图
 		$row['cover'] = $this->cover($row);
 	}
@@ -181,6 +164,19 @@ class Sher_Core_Model_Topic extends Sher_Core_Model_Base {
 		$data = $asset->first($query);
 		if(!empty($data)){
 			return $asset->extended_model_row($data);
+		}
+	}
+	
+	/**
+	 * 批量更新附件所属
+	 */
+	public function update_batch_assets($ids=array(), $parent_id){
+		if (!empty($ids)){
+			$model = new Sher_Core_Model_Asset();
+			foreach($ids as $id){
+				Doggy_Log_Helper::debug("Update asset[$id] parent_id: $parent_id");
+				$model->update_set($id, array('parent_id' => $parent_id));
+			}
 		}
 	}
 	
@@ -224,6 +220,13 @@ class Sher_Core_Model_Topic extends Sher_Core_Model_Base {
      */
 	public function mark_cancel_fine($id){
 		return $this->update_set($id, array('fine' => 0));
+	}
+	
+	/**
+	 * 更新发布上线
+	 */
+	public function mark_as_publish($id, $published=1) {
+		return $this->update_set($id, array('state' => $published));
 	}
 	
 	/**
@@ -335,6 +338,12 @@ class Sher_Core_Model_Topic extends Sher_Core_Model_Base {
 		$asset = new Sher_Core_Model_Asset();
 		$asset->delete_file($asset_id);
 		unset($asset);
+		
+		// 验证是否为封面图
+		$row = $this->load((int)$id);
+		if(!empty($row) && $row['cover_id'] == $asset_id){
+			$this->update_set((int)$id, array('cover_id'=>''));
+		}
 	}
 	
 	/**

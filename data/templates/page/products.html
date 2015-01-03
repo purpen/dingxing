@@ -124,6 +124,14 @@
 		left:0;
 		top:0;
 	}
+	
+	.ui.men.grid > .row > .column {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	.ui.men.grid > .row > .column .ui.menu {
+		text-align: center;
+	}
 </style>
 {% endblock %}
 
@@ -132,50 +140,51 @@
 {% endblock %}
 
 {% block content %}
-	<div class="ui table grid">
-		<div class="ui responsive grid">
-			<div class="row">
-				<div class="ui four items">
-					<div class="center aligned item">
-						<h5 class="ui header active">空净产品</h5>
+	<div class="ui men grid">
+		<div class="row">
+			<div class="column">
+				<div class="ui secondary pointing menu">
+					<div class="item">
+						空净产品
 					</div>
-					<div class="center aligned item">
-						<h5 class="ui header">消毒产品</h5>
+					<div class="item">
+						消毒产品
 					</div>
-					<div class="center aligned item">
-						<h5 class="ui header">饮用产品</h5>
+					<div class="item">
+						饮用产品
 					</div>
-					<div class="center aligned item">
-						<h5 class="ui header">智能家居</h5>
+					<div class="item">
+						智能家居
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+	
 	<div class="ui table">
 		<div class="ui responsive grid">
 			<div class="row">
-				<div class="ui four items">
-					<div class="center aligned item">
+				<div class="ui four cards">
+					<div class="center aligned card">
 						<div class="p-air">
 							<a href="cm.html"><div class="cm"></div></a>
 						</div>
 					</div>
-					<div class="center aligned item">
+					<div class="center aligned card">
 						<div class="image">
 							<div class="p-air">
 								<a href="lcm.html"><div class="lcm"></div></a>
 							</div>
 						</div>
 					</div>
-					<div class="center aligned item">
+					<div class="center aligned card">
 						<div class="image">
 							<div class="p-air">
 								<a href="xkl.html"><div class="xkl"></div></a>
 							</div>
 						</div>
 					</div>
-					<div class="center aligned item">
+					<div class="center aligned card">
 						<div class="image">
 							<div class="p-air">
 								<a href="dkl.html"><div class="dkl"></div></a>

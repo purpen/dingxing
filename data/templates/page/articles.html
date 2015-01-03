@@ -1,475 +1,83 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
-		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0" name="viewport">
-		<meta name="title" content=" " />
-		<meta name="keywords" content=" "/>
-		<meta name="description" content=" " />
-		<meta content="鼎兴商贸" name="author" />
-		<title>鼎兴商贸</title>
-		<link rel="shortcut icon" href="/favicon.ico" />
-		<style type="text/css">
-			body {
-			    color: #5d6266;
-			    min-width: 320px;
-				margin: 0;
-				font-size: 14px;
-				font-family: "Microsoft YaHei",tahoma,arial,"Hiragino Sans GB",宋体,sans-serif;
-			}
-			.clearfix:after {content: "."; display: block;clear: both; visibility: hidden;line-height: 0; height: 0;}
-			.clearfix {display: inline-table; +display:inline-block;}/* Hides from IE-mac \*/* html .clearfix {height: 1%;}.clearfix {display: block;}
-			#ft {
-				background: none repeat scroll 0 0 #545454;
-				padding: 1em 0 2em;
-				color:#fff;
-			}
-			#ft .ui.list .item {
-				display: block;
-				font-size: 1em;
-				padding: .3em 0;
-				letter-spacing: 2px;
-			}
-			#ft a{
-				text-decoration: none;
-				color:#fff;
-			}
-			#ft a:hover {
-				text-decoration: underline;
-				color:red;
-			}
-			#ft .ftline{
-				display:inline-block;
-			}
-			#ft .ftline .sina{
-				opacity:0;
-				position:absolute;
-				top:42px;
-				-webkit-transition: all .3s ease .1s;
-				transition: all .3s ease .1s;
-			}
-			#ft .ftline:hover .sina{
-				opacity:1;
-				position:absolute;
-				top:42px;
-			}
-			#ft .fto{
-				margin: auto auto 3em!important;
-			}
-			#ft .ftbor{
-				border-top: 1px solid rgba(0,0,0,.4);
-			}
-			#ft .copyright {
-				font-size: .875em;
-			}
-			#ft a.ui.link.item {
-				font-size: 14px;
-			}
-			
-			#artic .ui.table .row:first-child{
-				margin-left:490px;
-				width:472px !important;
-			}
-			.ui.review{
-				background:url(images/cm_p.jpg) scroll no-repeat center top /cover;
-			}
-			#artic .ui.review .ui.mate{
-				padding: 200px 100px 300px;
-			}
-			.btn-4{
-				font-size: 18px;
-				color: #fff;
-				text-decoration: none;
-				padding: .8em 2em;
-				background: rgba(0,0,0,0);
-				border: 1px solid #fff;
-				border-radius: 3px;
-				position: relative;
-				top: 50px;
-			}
-			.ui.items>.item>.content{
-				padding:8px 4px !important;
-			}
-			.ui.items .item>.content .advantage {
-				font-size: .75em;
-				margin: .35em 0;
-				font-weight: 400;
-			}
-			.ui.pt-24{
-				padding:24px 0 !important;
-			}
-			#artic .uyan{
-				background:url(images/cm_p3.jpg);
-				height:21px;
-				width:21px;
-				display: inline-block;
-				float: left;
-			}
-			#artic .mess{
-				background:url(images/cm_p4.jpg);
-				height:21px;
-				width:21px;
-				display: inline-block;
-				float: left;
-			}
-			#artic .like{
-				background:url(images/cm_p5.jpg);
-				height:21px;
-				width:21px;
-				display: inline-block;
-				float: left;
-			}
-			#artic .goto{
-				background:url(images/cm_p6.jpg);
-				height:21px;
-				width:21px;
-				display: inline-block;
-				float: right;
-			}
-			#artic .text{
-				font-size: 12px;
-				display: inline-block;
-				float: left;
-				line-height: 21px;
-				padding:0 8px 0 5px;
-			}
-			#artic .ui.pt-24 .ui.three.items .item,#artic .ui.pt-24 .ui.three.items .item:hover{
-				margin-bottom: 24px;
-				border: 1px solid rgba(0,0,0,.1) !important;
-				padding-bottom: 5px;
-				cursor: auto;
-			}
-		</style>
-		<link rel="stylesheet" href="css/semantic.min.css" type="text/css" />
-		<link rel="stylesheet" href="css/base.css" type="text/css" />
-	</head>
+{%extends 'layout/column.html'%}
+
+{% block page_css %}
+<style type="text/css">
+	#articles {
+		margin: 0em auto 2em;
+	}
+	.ui.items {
+		font-size: 14px;
+	}
+	.ui.items > .item > .image:not(.ui) {
+		width: 440px;
+	}
+	.ui.secondary.menu {
+	    text-align: center;
+	}
+	.ui.pagination {
+		text-align: center;
+		border-top: 1px solid rgba(39, 41, 43, 0.15);
+		padding: 2em 0;
+	}
+</style>
+{% endblock %}
+
+{% block jquery %}
 	
-	<body id="artic">
-		<header class="ui header">
-			<div class="ui menu">
-				<div class="item">
-					<img src="images/logo.jpg" alt="鼎兴商贸" />
+{% endblock %}
+
+{% block content %}
+<div id="articles">
+	<section class="ui articles responsive grid">
+		<div class="row">
+			<div class="column">
+				{% category_list var:'category' only_open:1 domain:1 pid:current_category._id current:cid show_all:1 %}
+				<div class="ui secondary pointing menu">
+					{% for cat in category.rows %}
+				  	<a class="{{ cat.active }} item" href="{{ app_url_topic }}/c{{ cat._id }}">
+				    	{{ cat.title }}
+				  	</a>
+					{% endfor %}
 				</div>
-				<a class="item" href="index.html">首页</a>
-				<a class="item" href="products.html">产品汇</a>
-				<a class="item active" href="articles.html">观点王</a>
-				<a class="item" href="smart.html">智能体验馆</a>
-				<a class="item" href="about.html">关于鼎兴</a>
-				<a class="item" href="contact.html">联系我们</a>
-			</div>
-		</header>
-		<div class="ui table grid">
-			<div class="ui responsive grid">
-				<div class="row">
-					<div class="ui four items">
-						<div class="center aligned item">
-							<h5 class="ui header active">评测</h5>
-						</div>
-						<div class="center aligned item">
-							<a href="try.html"><h5 class="ui header">试用体验</h5></a>
-						</div>
-						<div class="center aligned item">
-							<a href="topic.html"><h5 class="ui header">产品动态</h5></a>
-						</div>
-						<div class="center aligned item">
-							<h5 class="ui header">线下活动</h5>
-						</div>
-					</div>
+				
+				<div class="ui divided items">
+					{% topic_list var:'list' page:page category_id:cid %}
+					{% for topic in list.rows %}
+				  	<div class="item">
+				    	<div class="image">
+				      	  	<img src="{{ topic.cover.thumbnails.large.view_url }}" />
+				    	</div>
+				    	<div class="content">
+				     		<a class="header" href="{{ topic.view_url }}">{{ topic.title }}</a>
+				      	  	<div class="meta">
+				        		<span class="cinema">{{ topic.created_on|date 'Y-m-d H:i' }}</span> <i class="unhide icon"></i> {{ topic.view_count }}
+				      	  	</div>
+				      	  	<div class="description">
+				        		{{ topic.strip_description|truncate 350 }}
+				      		</div>
+				      	  	<div class="extra">
+								{% for tag in topic.tags%}
+								{% if tag %}
+				       		 	<div class="ui horizontal label">{{ tag }}</div>
+								{% endif %}
+								{% endfor %}
+				      	  	</div>
+				    	</div>
+				  	</div>
+					{% endfor %}
 				</div>
 			</div>
 		</div>
-		<section class="ui review grid">
-			<div class="ui responsive mate grid">
-				<img src="images/cm_p1.png">
-				<p><a class="btn-4" href="cm.html">查看详情</a></p>
-			</div>
-		</section>
-		<section class="ui pt-24 responsive grid">
-			<div class="row">
-				<div class="ui three items">
-					<div class="item">
-						<div class="image">
-							<img src="images/cm_p2.jpg">
-						</div>
-						<div class="content">
-							<h5 class="ui header">全新nut智能寻物防丢贴片——智能寻物防丢小管家
-								<div class="advantage">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus 
-								</div>
-							</h5>
-							<div class="name">
-								<div class="uyan"></div>
-								<div class="text">123</div>
-								<div class="mess"></div>
-								<div class="text">22</div>
-								<div class="like"></div>
-								<div class="text">12</div>
-								<div class="goto"></div>
-							</div>
-						</div>
-					</div>
-					<div class="item">
-						<div class="image">
-							<img src="images/cm_p2.jpg">
-						</div>
-						<div class="content">
-							<h5 class="ui header">全新nut智能寻物防丢贴片——智能寻物防丢小管家
-								<div class="advantage">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus 
-								</div>
-							</h5>
-							<div class="name">
-								<div class="uyan"></div>
-								<div class="text">123</div>
-								<div class="mess"></div>
-								<div class="text">22</div>
-								<div class="like"></div>
-								<div class="text">12</div>
-								<div class="goto"></div>
-							</div>
-						</div>
-					</div>
-					<div class="item">
-						<div class="image">
-							<img src="images/cm_p2.jpg">
-						</div>
-						<div class="content">
-							<h5 class="ui header">全新nut智能寻物防丢贴片——智能寻物防丢小管家
-								<div class="advantage">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus 
-								</div>
-							</h5>
-							<div class="name">
-								<div class="uyan"></div>
-								<div class="text">123</div>
-								<div class="mess"></div>
-								<div class="text">22</div>
-								<div class="like"></div>
-								<div class="text">12</div>
-								<div class="goto"></div>
-							</div>
-						</div>
-					</div>
+		<div class="row">
+			<div class="column">
+				{% if list.rows %}
+				<div class="ui pagination">
+					{% pager url:pager_url,total_rows:list.total_rows,total_page:list.total_page,current_page:page,var:'pager',pager_size:9 %}
+					{%include 'block/pager.html'%}
 				</div>
-				<div class="ui three items">
-					<div class="item">
-						<div class="image">
-							<img src="images/cm_p2.jpg">
-						</div>
-						<div class="content">
-							<h5 class="ui header">全新nut智能寻物防丢贴片——智能寻物防丢小管家
-								<div class="advantage">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus 
-								</div>
-							</h5>
-							<div class="name">
-								<div class="uyan"></div>
-								<div class="text">123</div>
-								<div class="mess"></div>
-								<div class="text">22</div>
-								<div class="like"></div>
-								<div class="text">12</div>
-								<div class="goto"></div>
-							</div>
-						</div>
-					</div>
-					<div class="item">
-						<div class="image">
-							<img src="images/cm_p2.jpg">
-						</div>
-						<div class="content">
-							<h5 class="ui header">全新nut智能寻物防丢贴片——智能寻物防丢小管家
-								<div class="advantage">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus 
-								</div>
-							</h5>
-							<div class="name">
-								<div class="uyan"></div>
-								<div class="text">123</div>
-								<div class="mess"></div>
-								<div class="text">22</div>
-								<div class="like"></div>
-								<div class="text">12</div>
-								<div class="goto"></div>
-							</div>
-						</div>
-					</div>
-					<div class="item">
-						<div class="image">
-							<img src="images/cm_p2.jpg">
-						</div>
-						<div class="content">
-							<h5 class="ui header">全新nut智能寻物防丢贴片——智能寻物防丢小管家
-								<div class="advantage">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus 
-								</div>
-							</h5>
-							<div class="name">
-								<div class="uyan"></div>
-								<div class="text">123</div>
-								<div class="mess"></div>
-								<div class="text">22</div>
-								<div class="like"></div>
-								<div class="text">12</div>
-								<div class="goto"></div>
-							</div>
-						</div>
-					</div>
-				</div>
+				{% endif %}
 			</div>
-			
-		</section>
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		<footer id="ft">
-			<div class="fto">
-				<div class="ui responsive grid">
-					<div class="computer table only row">
-						<div class="four wide column">
-							<div class="ui list">
-								<h2 class="item">
-									<b>关于鼎兴</b>
-								</h2>
-								<a href="" class="ui link item">
-									关于我们
-								</a>
-								<a href="" class="ui link item">
-									联系我们
-								</a>
-								<a href="" class="ui link item">
-									加入我们
-								</a>
-							</div>
-						</div>
-					
-						<div class="four wide column">
-							<div class="ui list">
-								<h2 class="item">
-									<b>服务</b>
-								</h2>
-								<a href="" class="ui link item">
-									如何工作
-								</a>
-								<a href="" class="ui link item">
-									投票规则
-								</a>
-							</div>
-						</div>
-					
-						<div class="four wide column">
-							<div class="ui list">
-								<h2 class="item">
-									<b>帮助中心</b>
-								</h2>
-								<a href="" class="ui link item">
-									常见问题
-								</a>
-								<a href="" class="ui link item">
-									服务协议
-								</a>
-								<a href="" class="ui link item">
-									创意提交规范
-								</a>
-							</div>
-						</div>
-					
-						<div class="four wide column">
-							<div class="ui list" style="position:relative">
-								<h2 class="item">
-									<b>关注我们</b>
-								</h2>
-								<div class="ftline">
-									<a href="http://weibo.com/topct" title="新浪微博" target="_blank">
-										<img src="./images/dx_5.png">
-									</a>
-									<a href="http://weibo.com/topct" title="新浪微博" target="_blank">
-										<img  class="sina" src="./images/dx_8.png">
-									</a>
-								</div>
-								<div class="ftline">
-									<a href="http://t.qq.com/" title="腾讯微博" target="_blank">
-										<img src="./images/dx_6.png">
-									</a>
-									<a href="http://t.qq.com/" title="腾讯微博" target="_blank">
-										<img class="sina" src="./images/dx_9.png">
-									</a>
-								</div>
-								<div class="ftline">
-									<a href="" title="微信">
-										<img src="./images/dx_7.png">
-									</a>
-									<a href="" title="微信">
-										<img class="sina" src="./images/dx_10.png">
-									</a>
-								</div>
-							</div>
-						</div>	
-					</div>
-				</div>
-			</div>
-			<div class="ftbor">
-				<div class="ui responsive grid">
-					<div class="row">
-						<div class="center aligned column">
-							<p class="copyright">Copyright © 2014 Topct.Co.,Ltd  All rights reserved.&nbsp;&nbsp; 北京鼎兴商贸有限公司保留所有权利 &nbsp;&nbsp;<a href="http://www.miitbeian.gov.cn" class="ui gray link" target="_blank">京ICP备14040676号</a></p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</footer>
-		<script type="text/javascript" src="javascript/jquery-2.min.js"></script>
-		<script type="text/javascript" src="javascript/semantic.min.js"></script>
-		<script type="text/javascript" src="javascript/sly.js"></script>
-		<script type="text/javascript">
-		<!--
-		$(function(e){
-			var s=e(window).width();
-			e("#frslide > .slide > .item").width(s);
-	
-			var $frame = $('#frslide');
-			// Call Sly on frame
-			$frame.sly({
-				horizontal: 1,
-				itemNav: 'basic',
-				smart: 1,
-				activateMiddle: 1,
-				activateOn: 'click',
-				mouseDragging: 1,
-				touchDragging: 1,
-				releaseSwing: 1,
-				startAt: 0,
-				pagesBar: $frame.find('.pages'),
-				pageItem: 'pages',
-				activatePageOn: 'click',
-				pageBuilder: function (index) {
-					return '<a href="javascript:void(0);">' + (index + 1) + '</a>';
-				},
-				speed: 300,
-				elasticBounds: 1,
-				easing: 'easeOutExpo',
-				dragHandle: 1,
-				dynamicHandle: 1,
-				clickBar: 1,
-			});
-	
-			$(window).resize(function() {
-				var s=$(window).width();
-				e("#frslide > .slide > .item").width(s);
-		
-				$frame.sly('reload');
-			});
-		});
-		//-->
-		</script>
-	</body>
-</html>
+		</div>
+	</section>
+</div>
+{% endblock %}

@@ -27,7 +27,7 @@ class Sher_App_Action_Auth extends Sher_App_Action_Base {
 	 * @return void
 	 */
 	public function login(){
-		$return_url = $_SERVER['HTTP_REFERER'];
+		$return_url = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '';
 		// 过滤上一步来源为退出链接
 		if(!strpos($return_url,'logout') && !strpos($return_url, 'find_passwd')){
 			$this->stash['return_url'] = $return_url;
@@ -46,16 +46,6 @@ class Sher_App_Action_Auth extends Sher_App_Action_Base {
         }
 		
        	$this->gen_login_token();
-		
-		// 获取微博登录的Url
-		$akey = Doggy_Config::$vars['app.sinaweibo.app_key'];
-		$skey = Doggy_Config::$vars['app.sinaweibo.app_secret'];
-		$callback = Doggy_Config::$vars['app.sinaweibo.callback_url'];
-		
-		$oa = new Sher_Core_Helper_SaeTOAuthV2($akey, $skey);
-		$weibo_auth_url = $oa->getAuthorizeURL($callback);
-		
-		$this->stash['weibo_auth_url'] = $weibo_auth_url;
 		
 		return $this->to_html_page('page/login.html');
 	}

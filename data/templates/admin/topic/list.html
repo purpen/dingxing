@@ -1,0 +1,84 @@
+{%extends 'layout/admin.html'%}
+{% block page_css %}
+<style type="text/css">
+	
+</style>
+{% endblock %}
+
+
+{% block content %}
+<div class="ui responsive grid">
+	<div class="row">
+		<div class="column">
+			<div class="ui tabular menu">
+			  	<a class="active item" href="{{ app_url_admin }}/topic">
+			    	观点列表
+			  	</a>
+			  	<a class="item" href="{{ app_url_admin }}/topic/edit">
+			    	发表观点
+			  	</a>
+			</div>
+			
+			{% topic_list var:'list' page:page %}
+			<table class="ui small table segment">
+				<thead>
+					<tr>
+						<th>标题</th>
+						<th>发布者</th>
+						<th>状态</th>
+						<th>管理操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for topic in list.rows %}
+					<tr id="{{ topic._id }}">
+						<td>
+							<a class="ui link" href="{{ topic.view_url }}" target="_blank">
+							  	{{ topic.title }}
+							</a>
+							<p>
+								<label>发表时间：{{ topic.created_on|date 'Y-m-d H:i'}}</label>
+								{% if topic.cover_id %}
+								<i class="photo icon"></i>
+								{% endif %}
+							</p>
+						</td>
+						<td>
+							{{ topic.user.nickname }}
+						</td>
+						<td>
+							{% if topic.state == 1 %}
+							<label class="ui blue label" id="publish-{{ topic._id }}-label">已发布</label>
+							{% endif %}
+					
+							{% if topic.state == 0 %}
+							<label class="ui orange label" id="publish-{{ topic._id }}-label">草稿箱</label>
+							{% endif %}
+						</td>
+						<td>
+							{% if topic.state == 1 %}
+							<a href="{{ app_url_admin }}/topic/unpublish?id={{ topic._id }}" class="ui ajax link" id="publish-{{ topic._id }}-button">撤销发布</a>
+							{% else %}
+							<a href="{{ app_url_admin }}/topic/publish?id={{ topic._id }}" class="ui ajax link" id="publish-{{ topic._id }}-button">发布</a>
+							{% endif %}
+							<a href="{{ app_url_admin }}/topic/edit?id={{ topic._id }}" class="ui link">编辑</a>
+							<a href="{{ app_url_admin }}/topic/delete?id={{ topic._id }}" class="ui link confirm-request">删除</a>
+						</td>
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+	
+			{% if list.rows %}
+			<div class="ui pagination">
+				{% pager url:pager_url,total_rows:list.total_rows,total_page:list.total_page,current_page:page,var:'pager',pager_size:9 %}
+				{%include 'block/pager.html'%}
+				<label class="page_count">{{ list.total_rows }}个</label>
+			</div>
+			{% endif %}
+			
+			
+		</div>
+	</div>
+</div>
+{% endblock %}

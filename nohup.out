@@ -1,0 +1,6 @@
+LOCK:/Users/xiaoyi/Project/phenix/var/cron_service.lock missing, shutdown
+rm: /Users/xiaoyi/Project/phenix/var/cron_service.lock: No such file or directory
+LOCK:/Users/xiaoyi/Project/phenix/var/cron_service.lock missing, shutdown
+rm: /Users/xiaoyi/Project/phenix/var/cron_service.lock: No such file or directory
+LOCK:/Users/xiaoyi/Project/phenix/var/cron_service.lock missing, shutdown
+rm: /Users/xiaoyi/Project/phenix/var/cron_service.lock: No such file or directory
