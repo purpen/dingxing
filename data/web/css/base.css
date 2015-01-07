@@ -44,8 +44,8 @@ header.ui.header{
 .ui.header >.ui.menu{
 	width:1180px;
 	margin:0 auto;
-	-webkit-box-shadow: 0 0 0 0px rgba(0,0,0,.1);
-	box-shadow: 0 0 0 0px rgba(0,0,0,.1);
+	-webkit-box-shadow: 0 0 0 0px rgba(0,0,0,0.1);
+	box-shadow: 0 0 0 0px rgba(0,0,0,0.1);
 }
 .ui.header > .ui.menu > .item {
 	color: #fff;
@@ -71,7 +71,7 @@ header.ui.header{
 }
 .ui.men .card h5.ui.header{
 	margin: 1.4em 1.8em 0em;
-	padding-bottom: .6em;
+	padding-bottom: 0.6em;
 	font-size:15px;
 }
 .ui.men .card h5.ui.header.active{
@@ -81,7 +81,7 @@ header.ui.header{
 .ui.men .card:hover h5.ui.header{
 	border-bottom:2px solid #e10000;
 	margin: 1.4em 1.8em 0em;
-	padding-bottom: .6em;
+	padding-bottom: 0.6em;
 	color:#e10000;
 	font-size:15px;
 }
@@ -107,6 +107,10 @@ header.ui.header{
 }
 .ui.level > .row > .eight.wide:first-child{
 	padding-left:115px;
+}
+.ui.level > .row > .eight.wide p {
+	padding: 1.3em 0;
+	font-size: 15px;
 }
 .right.aligned{
 	float:right;

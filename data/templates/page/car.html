@@ -1,25 +1,7 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
-		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0" name="viewport">
-		<meta name="title" content=" " />
-		<meta name="keywords" content=" "/>
-		<meta name="description" content=" " />
-		<meta content="鼎兴商贸" name="author" />
-		<title>鼎兴商贸</title>
-		<link rel="shortcut icon" href="/favicon.ico" />
+{%extends 'layout/column.html'%}
+
+{% block page_css %}
 		<style type="text/css">
-			body {
-			    color: #5d6266;
-			    min-width: 320px;
-				margin: 0;
-				font-size: 14px;
-				font-family: "Microsoft YaHei",tahoma,arial,"Hiragino Sans GB",宋体,sans-serif;
-			}
-			.clearfix:after {content: "."; display: block;clear: both; visibility: hidden;line-height: 0; height: 0;}
-			.clearfix {display: inline-table; +display:inline-block;}/* Hides from IE-mac \*/* html .clearfix {height: 1%;}.clearfix {display: block;}
 			#ft {
 				background: none repeat scroll 0 0 #545454;
 				padding: 1em 0 2em;
@@ -57,11 +39,9 @@
 			#ft .fto{
 				margin: auto auto 3em!important;
 			}
-			#ft .ftbor{
-				border-top: 1px solid rgba(0,0,0,.4);
-			}
 			#ft .copyright {
-				font-size: .875em;
+				font-size: 14px;
+				line-height:3.33rem;
 			}
 			#ft a.ui.link.item {
 				font-size: 14px;
@@ -77,197 +57,45 @@
 				background:#76c5ab;
 			}
 		</style>
-		<link rel="stylesheet" href="css/semantic.min.css" type="text/css" />
-		<link rel="stylesheet" href="css/base.css" type="text/css" />
-	</head>
-	
-	<body>
-		<header class="ui header">
-			<div class="ui menu">
-				<div class="item">
-					<img src="images/logo.jpg" alt="鼎兴商贸" />
-				</div>
-				<a class="item" href="index.html">首页</a>
-				<a class="active item" href="products.html">产品汇</a>
-				<a class="item" href="articles.html">观点王</a>
-				<a class="item" href="smart.html">智能体验馆</a>
-				<a class="item" href="about.html">关于鼎兴</a>
-				<a class="item" href="contact.html">联系我们</a>
-			</div>
-		</header>
+		{% endblock %}
+
+		{% block jquery %}
+
+		{% endblock %}
+
+		{% block content %}
 		<section class="ui level responsive grid">
 			<div class="row">
 				<div class="eight wide column">
 					<p>贝马卫士</p>
 				</div>
-				<div class="eight right aligned wide column">
+				<div class="eight wide column right aligned">
 					<p>特色 ｜ 功能 ｜ 参数 ｜ &nbsp;&nbsp;&nbsp;&nbsp;<a href="" class="btn">立即购买</a></p>
 				</div>
 			</div>
 		</section>
 		
 		<div id="car">
-				<img src="images/products/car_01.jpg">
+				<img src="/images/products/car_01.jpg">
 			<section class="ui responsive grid">
-				<img src="images/products/car_02.jpg">
+				<img src="/images/products/car_002.jpg">
 			</section>
 			<section class="ui blue grid">
 				<div class="ui responsive grid">
-					<img src="images/products/car_03.jpg">
+					<img src="/images/products/car_03.jpg">
 				</div>
 			</section>
 			<section class="ui responsive grid">
-				<img src="images/products/car_04.jpg">
+				<img src="/images/products/car_04.jpg">
 			</section>
 			<section class="ui gary grid">
 				<div class="ui responsive grid">
-					<img src="images/products/car_05.jpg">
+					<img src="/images/products/car_05.jpg">
 				</div>
 			</section>
 			<section class="ui responsive grid">
-				<img src="images/products/car_06.jpg">
+				<img src="/images/products/car_06.jpg">
 			</section>
 		</div>
 		
-		<footer id="ft">
-			<div class="fto">
-				<div class="ui responsive grid">
-					<div class="computer table only row">
-						<div class="four wide column">
-							<div class="ui list">
-								<h2 class="item">
-									<b>关于鼎兴</b>
-								</h2>
-								<a href="" class="ui link item">
-									关于我们
-								</a>
-								<a href="" class="ui link item">
-									联系我们
-								</a>
-								<a href="" class="ui link item">
-									加入我们
-								</a>
-							</div>
-						</div>
-					
-						<div class="four wide column">
-							<div class="ui list">
-								<h2 class="item">
-									<b>服务</b>
-								</h2>
-								<a href="" class="ui link item">
-									如何工作
-								</a>
-								<a href="" class="ui link item">
-									投票规则
-								</a>
-							</div>
-						</div>
-					
-						<div class="four wide column">
-							<div class="ui list">
-								<h2 class="item">
-									<b>帮助中心</b>
-								</h2>
-								<a href="" class="ui link item">
-									常见问题
-								</a>
-								<a href="" class="ui link item">
-									服务协议
-								</a>
-								<a href="" class="ui link item">
-									创意提交规范
-								</a>
-							</div>
-						</div>
-					
-						<div class="four wide column">
-							<div class="ui list" style="position:relative">
-								<h2 class="item">
-									<b>关注我们</b>
-								</h2>
-								<div class="ftline">
-									<a href="http://weibo.com/topct" title="新浪微博" target="_blank">
-										<img src="./images/dx_5.png">
-									</a>
-									<a href="http://weibo.com/topct" title="新浪微博" target="_blank">
-										<img  class="sina" src="./images/dx_8.png">
-									</a>
-								</div>
-								<div class="ftline">
-									<a href="" title="腾讯微博" target="_blank">
-										<img src="./images/dx_6.png">
-									</a>
-									<a href="" title="腾讯微博" target="_blank">
-										<img class="sina" src="./images/dx_9.png">
-									</a>
-								</div>
-								<div class="ftline">
-									<a href="" title="微信">
-										<img src="./images/dx_7.png">
-									</a>
-									<a href="" title="微信">
-										<img class="sina" src="./images/dx_10.png">
-									</a>
-								</div>
-							</div>
-						</div>	
-					</div>
-				</div>
-			</div>
-			<div class="ftbor">
-				<div class="ui responsive grid">
-					<div class="row">
-						<div class="center aligned column">
-							<p class="copyright">Copyright © 2014 Topct.Co.,Ltd  All rights reserved.&nbsp;&nbsp; 北京鼎兴商贸有限公司保留所有权利 &nbsp;&nbsp;<a href="http://www.miitbeian.gov.cn" class="ui gray link" target="_blank">京ICP备14040676号</a></p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</footer>
-		<script type="text/javascript" src="javascript/jquery-2.min.js"></script>
-		<script type="text/javascript" src="javascript/semantic.min.js"></script>
-		<script type="text/javascript" src="javascript/sly.js"></script>
-		<script type="text/javascript">
-		<!--
-		$(function(e){
-			var s=e(window).width();
-			e("#frslide > .slide > .item").width(s);
-	
-			var $frame = $('#frslide');
-			// Call Sly on frame
-			$frame.sly({
-				horizontal: 1,
-				itemNav: 'basic',
-				smart: 1,
-				activateMiddle: 1,
-				activateOn: 'click',
-				mouseDragging: 1,
-				touchDragging: 1,
-				releaseSwing: 1,
-				startAt: 0,
-				pagesBar: $frame.find('.pages'),
-				pageItem: 'pages',
-				activatePageOn: 'click',
-				pageBuilder: function (index) {
-					return '<a href="javascript:void(0);">' + (index + 1) + '</a>';
-				},
-				speed: 300,
-				elasticBounds: 1,
-				easing: 'easeOutExpo',
-				dragHandle: 1,
-				dynamicHandle: 1,
-				clickBar: 1,
-			});
-	
-			$(window).resize(function() {
-				var s=$(window).width();
-				e("#frslide > .slide > .item").width(s);
-		
-				$frame.sly('reload');
-			});
-		});
-		//-->
-		</script>
-	</body>
-</html>
+		{% endblock %}

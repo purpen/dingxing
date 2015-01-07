@@ -19,7 +19,7 @@ class Sher_App_Action_Index extends Sher_App_Action_Base {
 	protected $page_tab = 'page_index';
 	protected $page_html = 'page/index.html';
 	
-	protected $exclude_method_list = array('execute', 'home', 'products', 'topic', 'smart', 'about', 'contact');
+	protected $exclude_method_list = array('execute', 'home', 'products', 'smart', 'topic', 'about', 'contact', 'cm', 'lcm', 'xkl', 'dkl', 'water', 'car');
 	
 	protected $admin_method_list = array();
 	
@@ -60,7 +60,7 @@ class Sher_App_Action_Index extends Sher_App_Action_Base {
 	 */
 	public function topic(){
 		$this->set_target_css_state('page_smart');
-        return $this->to_html_page('page/try.html');
+        return $this->to_html_page('page/topic.html');
 	}
 	
 	/**
@@ -79,5 +79,46 @@ class Sher_App_Action_Index extends Sher_App_Action_Base {
         return $this->to_html_page('page/contact.html');
 	}
 	
+	/**
+	 * cm
+	 */
+	public function cm(){
+        return $this->to_html_page('page/cm.html');
+	}
+	
+	/**
+	 * lcm
+	 */
+	public function lcm(){
+        return $this->to_html_page('page/lcm.html');
+	}
+	
+	/**
+	 * xkl
+	 */
+	public function xkl(){
+        return $this->to_html_page('page/xkl.html');
+	}
+	
+	/**
+	 * dkl
+	 */
+	public function dkl(){
+        return $this->to_html_page('page/dkl.html');
+	}
+	
+	/**
+	 * water
+	 */
+	public function water(){
+        return $this->to_html_page('page/water.html');
+	}
+	
+	/**
+	 * car
+	 */
+	public function car(){
+        return $this->to_html_page('page/car.html');
+	}
 }
 ?>
