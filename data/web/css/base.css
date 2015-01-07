@@ -1,6 +1,14 @@
 .ui.grid{
 	margin:0;
 }
+.ui.grid > .row{
+	margin-top: 1.5%;
+	padding: 1rem 0 0;
+}
+.ui.grid>.row:first-child {
+	padding-top: 0;
+	margin-top: 0;
+}
 .ui.responsive.grid {
     width:1180px;
 	margin:0 auto !important;
@@ -15,6 +23,9 @@ h1.ui.header{
 }
 h1.ui.header .content .sub.header{
 	font-size:22px;
+}
+.ui.header:last-child {
+	margin-bottom: 0 !important;
 }
 .ui.header > .ui.menu {
 	background-color: #e10000;
@@ -55,38 +66,43 @@ header.ui.header{
 .center.aligned{
 	text-align:center;
 }
-.ui.table .item h5.ui.header{
+.ui.men{
+	border-bottom:1px solid rgba(0,0,0,.1);
+}
+.ui.men .card h5.ui.header{
 	margin: 1.4em 1.8em 0em;
 	padding-bottom: .6em;
 	font-size:15px;
 }
-.ui.table .item h5.ui.header.active{
+.ui.men .card h5.ui.header.active{
 	border-bottom: 2px solid #e10000;
 	color:#e10000;
 }
-.ui.table .item:hover h5.ui.header{
+.ui.men .card:hover h5.ui.header{
 	border-bottom:2px solid #e10000;
 	margin: 1.4em 1.8em 0em;
 	padding-bottom: .6em;
 	color:#e10000;
 	font-size:15px;
 }
-.ui.table .item{
-	font-size:0px !important;
-}
-.ui.table.grid{
-	border-bottom:1px solid #f1f2f5;
+
+.ui.table{
+	border:0px solid #f1f2f5;
 	margin-top:.5em;
 	margin-bottom: 1em;
 }
-.ui.table .item{
-	min-height:0px !important;
+.ui.table .row:first-child{
+	margin-left: 376px !important;
 }
-.ui.table .ui.four.items .item a{
+.ui.table .ui.four.cards>.card {
+	width: -webkit-calc(24% - 1.5em);
+	width: calc(24% - 1.5em);
+}
+.ui.table .ui.four.cards .card a{
 	text-decoration:none;
 	color: #5d6266;
 }
-.ui.table .item:hover a{
+.ui.table .card:hover a{
 	color:#e10000;
 }
 .ui.level > .row > .eight.wide:first-child{
@@ -103,7 +119,9 @@ header.ui.header{
 	text-decoration: none;
 	border-radius: 3px;
 }
-
+#products a .sub.header{
+	font-size:1.6rem;
+}
 #frslide {
 	max-height: 400px;
 	position: relative;
@@ -141,16 +159,19 @@ header.ui.header{
 .ui.products.section {
 	margin: 2em auto 0;
 }
-.ui.items > .item, .ui.items > .row > .item {
+.ui.cards > .card, .ui.cards > .row > .card {
 	border-bottom: 0 solid rgba(0, 0, 0, 0.2);
-	border-radius: 0;
-	min-height: 280px;
+	border-radius: 0 !important;
+	min-height: 0px;
 	padding: 0;
 	box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.1);
 }
-.ui.items > .item:hover, .ui.items > .row > .item:hover {
+.ui.card>:last-child, .ui.cards>.card>:last-child {
+	border-radius: 0 !important;
+}
+.ui.cards > .card:hover, .ui.cards > .row > .card:hover {
 	box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.1);
 }
-.ui.two.items > .item {
+.ui.two.cards > .card {
 	margin: 0 0 1%;
 }

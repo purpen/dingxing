@@ -2,21 +2,70 @@
 
 {% block page_css %}
 <style type="text/css">
-	#contact .ui.table .row:first-child{
+	.ui.men .row:first-child{
 		width: 120px !important;
 		margin-left: 970px;
 	}
-	#contact .ui.content.grid{
+	.ui.content.grid{
 		padding-top:4% !important;
 		padding-bottom:5% !important;
 	}
-	#contact .ui.content.grid .ui.header .sub.header {
+	.ui.content.grid .ui.header .sub.header {
 		line-height: 2;
 		color: rgba(0,0,0,.7);
 	}
-	#contact .ui.content.grid .eight.wide h4+p{
+	.ui.content.grid .eight.wide h4{
+		font-size:1.17rem;
+	}
+	.ui.content.grid .eight.wide h4+p{
 		margin-top:0;
 		line-height: 23px;
+		font-size:16px;
+	}
+	
+	#ft {
+		background: none repeat scroll 0 0 #545454;
+		padding: 1em 0 2em;
+		color:#fff;
+	}
+	#ft .ui.list .item {
+		display: block;
+		font-size: 1em;
+		padding: 0.3em 0;
+		letter-spacing: 2px;
+	}
+	#ft a{
+		text-decoration: none;
+		color:#fff;
+	}
+	#ft a:hover {
+		text-decoration: underline;
+		color:red;
+	}
+	#ft .ftline{
+		display:inline-block;
+	}
+	#ft .ftline .sina{
+		opacity:0;
+		position:absolute;
+		top:42px;
+		-webkit-transition: all 0.3s ease 0.1s;
+		transition: all 0.3s ease 0.1s;
+	}
+	#ft .ftline:hover .sina{
+		opacity:1;
+		position:absolute;
+		top:42px;
+	}
+	#ft .fto{
+		margin: auto auto 3em!important;
+	}
+	#ft .copyright {
+		font-size: 14px;
+		line-height:3.33rem;
+	}
+	#ft a.ui.link.item {
+		font-size: 14px;
 	}
 </style>
 {% endblock %}
@@ -26,11 +75,11 @@
 {% endblock %}
 
 {% block content %}
-	<div class="ui table grid">
+	<div class="ui men grid">
 		<div class="ui responsive grid">
 			<div class="row">
-				<div class="ui one items">
-					<div class="center aligned item">
+				<div class="ui one cards">
+					<div class="center aligned card">
 						<h5 class="ui header active">联系我们</h5>
 					</div>
 				</div>

@@ -1,25 +1,7 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
-		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0" name="viewport">
-		<meta name="title" content=" " />
-		<meta name="keywords" content=" "/>
-		<meta name="description" content=" " />
-		<meta content="鼎兴商贸" name="author" />
-		<title>鼎兴商贸</title>
-		<link rel="shortcut icon" href="/favicon.ico" />
+{%extends 'layout/column.html'%}
+
+{% block page_css %}
 		<style type="text/css">
-			body {
-			    color: #5d6266;
-			    min-width: 320px;
-				margin: 0;
-				font-size: 14px;
-				font-family: "Microsoft YaHei",tahoma,arial,"Hiragino Sans GB",宋体,sans-serif;
-			}
-			.clearfix:after {content: "."; display: block;clear: both; visibility: hidden;line-height: 0; height: 0;}
-			.clearfix {display: inline-table; +display:inline-block;}/* Hides from IE-mac \*/* html .clearfix {height: 1%;}.clearfix {display: block;}
 			#ft {
 				background: none repeat scroll 0 0 #545454;
 				padding: 1em 0 2em;
@@ -57,26 +39,34 @@
 			#ft .fto{
 				margin: auto auto 3em!important;
 			}
-			#ft .ftbor{
-				border-top: 1px solid rgba(0,0,0,.4);
-			}
 			#ft .copyright {
-				font-size: .875em;
+				font-size: 14px;
+				line-height:3.33rem;
 			}
 			#ft a.ui.link.item {
 				font-size: 14px;
 			}
 			
 			.ui.review{
-				background:url(images/cm_p.jpg) scroll no-repeat center top /cover;
+				background:url(/images/cm_p.jpg) scroll no-repeat center top /cover;
 			}
-			.ui.items>.item>.content{
+			.ui.cards>.card>.content{
 				padding:8px 4px !important;
+				margin-right:1px;
 			}
-			.ui.items .item>.content .advantage {
+			.ui.cards .card>.content .advantage {
 				font-size: .75em;
 				margin: .35em 0;
 				font-weight: 400;
+			}
+			.ui.three.cards {
+				margin-left: -1%;
+				margin-right: -1%;
+			}
+			.ui.three.cards>.card {
+				width: 31.333333%;
+				margin-left: 1%;
+				margin-right: 1%;
 			}
 			.btn-4{
 				font-size: 18px;
@@ -95,58 +85,58 @@
 			
 			
 			
-			#try .ui.table .row:first-child{
+			.ui.men .row:first-child{
 				margin-left:490px;
 				width:472px !important;
 			}
-			#try .ui.review .ui.mate{
+			.ui.review .ui.mate{
 				padding: 145px 100px 245px;
 			}
-			#try p.report{
+			p.report{
 				font-size: 16px;
 				color: #fff;
 			}
-			#try p#clock span {
+			p#clock span {
 				color: #fff;
 				background: rgba(0,0,0,.6);
 				padding: 10px 20px;
 				font-size: 25px;
 			}
-			#try p.count {
+			p.count {
 				padding: 19px 0;
 			}
-			#try .try-bg{
+			.try-bg{
 				width:376px;
 				height:300px;
 				position:absolute;
 				left:0;
 				top:0;
-				background:url(images/cm_p2.jpg);
+				background:url(/images/cm_p2.jpg);
 			}
-			#try .trying{
+			.trying{
 				width:380px;
 				height:300px;
 				position:absolute;
 				left:0;
 				top:0;
-				background:url(images/trying.png);
+				background:url(/images/trying.png);
 			}
-			#try .try-end{
+			.try-end{
 				width:380px;
 				height:300px;
 				position:absolute;
 				left:0;
 				top:0;
-				background:url(images/trying_end.png);
+				background:url(/images/trying_end.png);
 			}
-			#try .row+.row{
+			.row+.row{
 				margin-top:0 !important;
 			}
-			#try .ui.pt-24 .three.items .item .image{
+			.ui.pt-24 .three.cards .card .image{
 				width:376px;
 				height:300px;
 			}
-			#try .name p {
+			.name p {
 				display: inline-block;
 				float: left;
 				padding: 0 10px;
@@ -155,48 +145,37 @@
 				line-height: 17px;
 				font-size:14px;
 			}
-			#try .name p:last-child{
+			.name p:last-child{
 				border:none;
 			}
-			#try .ui.pt-24 .ui.three.items .item,#try .ui.pt-24 .ui.three.items .item:hover{
+			.ui.pt-24 .ui.three.cards .card,.ui.pt-24 .ui.three.cards .card:hover{
 				margin-bottom:24px;
 				border:1px solid rgba(0,0,0,.1) !important;
 				cursor:auto;
 			}
 		</style>
-			<link rel="stylesheet" href="css/semantic.min.css" type="text/css" />
-			<link rel="stylesheet" href="css/base.css" type="text/css" />
-	</head>
+		{% endblock %}
 
-	<body id="try">
-		<header class="ui header">
-			<div class="ui menu">
-				<div class="item">
-					<img src="images/logo.jpg" alt="鼎兴商贸" />
-				</div>
-				<a class="item" href="index.html">首页</a>
-				<a class="item" href="products.html">产品汇</a>
-				<a class="item active" href="articles.html">观点王</a>
-				<a class="item" href="smart.html">智能体验馆</a>
-				<a class="item" href="about.html">关于鼎兴</a>
-				<a class="item" href="contact.html">联系我们</a>
-			</div>
-		</header>
+		{% block jquery %}
+
+		{% endblock %}
+
+		{% block content %}
 		
-		<div class="ui table grid">
+		<div class="ui men grid">
 			<div class="ui responsive grid">
 				<div class="row">
-					<div class="ui four items">
-						<div class="center aligned item">
+					<div class="ui four cards">
+						<div class="center aligned card">
 							<a href="articles.html"><h5 class="ui header">评测</h5></a>
 						</div>
-						<div class="center aligned item">
+						<div class="center aligned card">
 							<h5 class="ui header active">试用体验</h5>
 						</div>
-						<div class="center aligned item">
+						<div class="center aligned card">
 							<a href="topic.html"><h5 class="ui header">产品动态</h5></a>
 						</div>
-						<div class="center aligned item">
+						<div class="center aligned card">
 							<h5 class="ui header">线下活动</h5>
 						</div>
 					</div>
@@ -206,7 +185,7 @@
 		<section class="ui review grid">
 			<div class="ui responsive mate grid">
 				<p class="count" id="clock"> </p>
-				<img src="images/cm_p1.png">
+				<img src="/images/cm_p1.png">
 				<p class="report">申请数量: 20台  &nbsp;&nbsp;&nbsp;&nbsp; 申请人数: 2000人</p>
 				<p><a class="btn-4" href=" ">申请试用</a></p>
 			</div>
@@ -216,8 +195,8 @@
 				<h3 class="ui header">往期试用</h3>
 			</div>
 			<div class="row">
-				<div class="ui three items">
-					<div class="item">
+				<div class="ui three cards">
+					<div class="card">
 						<div class="image">
 							<div class="try-bg">
 								<div class="trying">
@@ -237,7 +216,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="item">
+					<div class="card">
 						<div class="image">
 							<div class="try-bg">
 								<div class="try-end">
@@ -257,7 +236,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="item">
+					<div class="card">
 						<div class="image">
 							<div class="try-bg">
 								<div class="trying">
@@ -278,8 +257,8 @@
 						</div>
 					</div>
 				</div>
-				<div class="ui three items">
-					<div class="item">
+				<div class="ui three cards">
+					<div class="card">
 						<div class="image">
 							<div class="try-bg">
 								<div class="trying">
@@ -299,7 +278,7 @@
 							</div>
 						</div>	
 					</div>
-					<div class="item">
+					<div class="card">
 						<div class="image">
 							<div class="try-bg">
 								<div class="try-end">
@@ -319,7 +298,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="item">
+					<div class="card">
 						<div class="image">
 							<div class="try-bg">
 								<div class="trying">
@@ -343,161 +322,7 @@
 			</div>
 		</section>
 		
-		
-			
-		<footer id="ft">
-			<div class="fto">
-				<div class="ui responsive grid">
-					<div class="computer table only row">
-						<div class="four wide column">
-							<div class="ui list">
-								<h2 class="item">
-									<b>关于鼎兴</b>
-								</h2>
-								<a href="" class="ui link item">
-									关于我们
-								</a>
-								<a href="" class="ui link item">
-									联系我们
-								</a>
-								<a href="" class="ui link item">
-									加入我们
-								</a>
-							</div>
-						</div>
-					
-						<div class="four wide column">
-							<div class="ui list">
-								<h2 class="item">
-									<b>服务</b>
-								</h2>
-								<a href="" class="ui link item">
-									如何工作
-								</a>
-								<a href="" class="ui link item">
-									投票规则
-								</a>
-							</div>
-						</div>
-					
-						<div class="four wide column">
-							<div class="ui list">
-								<h2 class="item">
-									<b>帮助中心</b>
-								</h2>
-								<a href="" class="ui link item">
-									常见问题
-								</a>
-								<a href="" class="ui link item">
-									服务协议
-								</a>
-								<a href="" class="ui link item">
-									创意提交规范
-								</a>
-							</div>
-						</div>
-					
-						<div class="four wide column">
-							<div class="ui list" style="position:relative">
-								<h2 class="item">
-									<b>关注我们</b>
-								</h2>
-								<div class="ftline">
-									<a href="http://weibo.com/topct" title="新浪微博" target="_blank">
-										<img src="./images/dx_5.png">
-									</a>
-									<a href="http://weibo.com/topct" title="新浪微博" target="_blank">
-										<img  class="sina" src="./images/dx_8.png">
-									</a>
-								</div>
-								<div class="ftline">
-									<a href="http://t.qq.com/" title="腾讯微博" target="_blank">
-										<img src="./images/dx_6.png">
-									</a>
-									<a href="http://t.qq.com/" title="腾讯微博" target="_blank">
-										<img class="sina" src="./images/dx_9.png">
-									</a>
-								</div>
-								<div class="ftline">
-									<a href="" title="微信">
-										<img src="./images/dx_7.png">
-									</a>
-									<a href="" title="微信">
-										<img class="sina" src="./images/dx_10.png">
-									</a>
-								</div>
-							</div>
-						</div>	
-					</div>
-				</div>
-			</div>
-			<div class="ftbor">
-				<div class="ui responsive grid">
-					<div class="row">
-						<div class="center aligned column">
-							<p class="copyright">Copyright © 2014 Topct.Co.,Ltd  All rights reserved.&nbsp;&nbsp; 北京鼎兴商贸有限公司保留所有权利 &nbsp;&nbsp;<a href="http://www.miitbeian.gov.cn" class="ui gray link" target="_blank">京ICP备14040676号</a></p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</footer>
-		<script type="text/javascript" src="javascript/jquery-2.min.js"></script>
-		<script type="text/javascript" src="javascript/semantic.min.js"></script>
-		<script type="text/javascript" src="javascript/sly.js"></script>
-		<script type="text/javascript" src="javascript/jquery.countdown.js"></script>
-		<script type="text/javascript">
-		      $(function(){
-		        $('#clock').countdown({//counter与Body区域的DIV标签名相同
-		          startTime: '01:12:12:00'//此次自定义倒计时开始时间
-		        });
-		</script>
-		<script type="text/javascript">
-		<!--
-		$(function(e){
-			var s=e(window).width();
-			e("#frslide > .slide > .item").width(s);
-	
-			var $frame = $('#frslide');
-			// Call Sly on frame
-			$frame.sly({
-				horizontal: 1,
-				itemNav: 'basic',
-				smart: 1,
-				activateMiddle: 1,
-				activateOn: 'click',
-				mouseDragging: 1,
-				touchDragging: 1,
-				releaseSwing: 1,
-				startAt: 0,
-				pagesBar: $frame.find('.pages'),
-				pageItem: 'pages',
-				activatePageOn: 'click',
-				pageBuilder: function (index) {
-					return '<a href="javascript:void(0);">' + (index + 1) + '</a>';
-				},
-				speed: 300,
-				elasticBounds: 1,
-				easing: 'easeOutExpo',
-				dragHandle: 1,
-				dynamicHandle: 1,
-				clickBar: 1,
-			});
-	
-			$(window).resize(function() {
-				var s=$(window).width();
-				e("#frslide > .slide > .item").width(s);
-		
-				$frame.sly('reload');
-			});
-			$('#clock').countdown('2015/1/1 23:59:59').on('update.countdown', function(event){
-					var $this = $(this).html(event.strftime(''
-					+ '<span>%D 天 %H 时 %M 分 %S 秒</span> '));
-				});
-		});
-		//-->
-		</script>
-	</body>
-</html>	
+{% endblock %}
 			
 			
 	

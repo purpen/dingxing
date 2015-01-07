@@ -50,43 +50,47 @@
 		margin: auto auto 3em!important;
 	}
 	#ft .copyright {
-		font-size: .875em;
+		font-size: 14px;
+		line-height:3.33rem;
 	}
 	#ft a.ui.link.item {
 		font-size: 14px;
 	}
 	
-	#products a {
+	a {
 		text-decoration: none;
 	}
-	#products a:hover .sub.header{
+	a:hover .sub.header{
 		color:red !important;
 	}
-	#products a .sub.header{
+	a .sub.header{
 		color:#dc5a5a !important;
 		font-size:22px;
 		margin: 10px auto 15px;
 	}
-	#products .ui.header{
+	.ui.header{
 		margin-bottom:1em !important;
 	}
-	#products .ui.gray.section{
+	.ui.gray.section{
 		background:#f1f2f5;
 	}
-	#products .image img{
+	.image img{
 		max-width:100%;
-		margin-bottom: -3px;
+		margin-bottom: -4px;
 	}
 	/*#products .ui.section{
 		margin:2em auto 2em;
 	}*/
-	#dingx .ui.table .row:first-child{
+	.ui.table .row:first-child,.ui.men.grid .row:first-child{
 		margin-left:340px;
 		width:520px !important;
 	}
 	
-	#dingx .ui.table+.ui.table{
+	.ui.table{
 		margin:.5em 0 6rem;
+	}
+	.ui.table .ui.four.cards .card{
+		min-height:0;
 	}
 	.p-air{
 		width: 126px;
@@ -125,13 +129,7 @@
 		top:0;
 	}
 	
-	.ui.men.grid > .row > .column {
-		padding-left: 0;
-		padding-right: 0;
-	}
-	.ui.men.grid > .row > .column .ui.menu {
-		text-align: center;
-	}
+	
 </style>
 {% endblock %}
 
@@ -141,20 +139,20 @@
 
 {% block content %}
 	<div class="ui men grid">
-		<div class="row">
-			<div class="column">
-				<div class="ui secondary pointing menu">
-					<div class="item">
-						空净产品
+		<div class="ui responsive grid">
+			<div class="row">
+				<div class="ui four cards">
+					<div class="center aligned card">
+						<h5 class="ui header active">空净产品</h5>
 					</div>
-					<div class="item">
-						消毒产品
+					<div class="center aligned card">
+						<h5 class="ui header">消毒产品</h5>
 					</div>
-					<div class="item">
-						饮用产品
+					<div class="center aligned card">
+						<h5 class="ui header">饮用产品</h5>
 					</div>
-					<div class="item">
-						智能家居
+					<div class="center aligned card">
+						<h5 class="ui header">智能家居</h5>
 					</div>
 				</div>
 			</div>

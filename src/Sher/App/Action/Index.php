@@ -19,7 +19,7 @@ class Sher_App_Action_Index extends Sher_App_Action_Base {
 	protected $page_tab = 'page_index';
 	protected $page_html = 'page/index.html';
 	
-	protected $exclude_method_list = array('execute', 'home', 'products', 'smart', 'about', 'contact');
+	protected $exclude_method_list = array('execute', 'home', 'products', 'topic', 'smart', 'about', 'contact');
 	
 	protected $admin_method_list = array();
 	
@@ -53,6 +53,14 @@ class Sher_App_Action_Index extends Sher_App_Action_Base {
 	public function smart(){
 		$this->set_target_css_state('page_smart');
         return $this->to_html_page('page/smart.html');
+	}
+	
+	/**
+	 * 观点王
+	 */
+	public function topic(){
+		$this->set_target_css_state('page_smart');
+        return $this->to_html_page('page/try.html');
 	}
 	
 	/**
