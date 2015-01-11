@@ -179,3 +179,26 @@ header.ui.header{
 .ui.two.cards > .card {
 	margin: 0 0 1%;
 }
+/**
+  * footer
+ **/
+#ft {
+	background: none repeat scroll 0 0 #545454;
+	padding: 1em 0 2em;
+	color:#fff;
+}
+#ft a{
+	text-decoration: none;
+	color:#fff;
+}
+#ft a:hover {
+	text-decoration: underline;
+	color:red;
+}
+#ft .copyright {
+	font-size: 14px;
+	line-height:3.33rem;
+}
+#ft a.ui.link.item {
+	font-size: 14px;
+}
