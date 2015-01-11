@@ -257,7 +257,7 @@ class Sher_App_Action_Auth extends Sher_App_Action_Base {
 		
         Sher_Core_Helper_Auth::create_user_session($user_id);
 		
-        $redirect_url = $this->auth_return_url(Sher_Core_Helper_Url::user_home_url($user_id));
+        $redirect_url = $this->auth_return_url('/app/admin');
         if (empty($redirect_url)) {
             $redirect_url = '/';
         }
