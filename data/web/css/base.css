@@ -58,7 +58,7 @@ header.ui.header{
 	color: #fff;
 }
 .ui.header > .ui.menu > .item > img {
-	margin-top: 0.5em;
+	margin-top: 0.75em;
 }
 .ui.header > .ui.menu > .item:hover,
 .ui.header > .ui.menu > .active.item {
