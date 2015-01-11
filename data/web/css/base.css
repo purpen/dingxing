@@ -13,6 +13,13 @@
     width:1180px;
 	margin:0 auto !important;
 }
+a {
+	color: rgba(0,0,0,0.8);
+}
+a:hover,
+a.active {
+	color: rgba(255,0,0,1);
+}
 .ui.header {
 	margin-bottom: 0;
 }
@@ -74,16 +81,15 @@ header.ui.header{
 	padding-bottom: 0.6em;
 	font-size:15px;
 }
-.ui.men .card h5.ui.header.active{
+.ui.men .card a.active h5.ui.header{
 	border-bottom: 2px solid #e10000;
 	color:#e10000;
 }
-.ui.men .card:hover h5.ui.header{
+.ui.men .card a:hover h5.ui.header{
 	border-bottom:2px solid #e10000;
 	margin: 1.4em 1.8em 0em;
 	padding-bottom: 0.6em;
 	color:#e10000;
-	font-size:15px;
 }
 
 .ui.table{

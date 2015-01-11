@@ -1,203 +1,191 @@
 {%extends 'layout/column.html'%}
 
 {% block page_css %}
-		<style type="text/css">
-			#ft {
-				background: none repeat scroll 0 0 #545454;
-				padding: 1em 0 2em;
-				color:#fff;
-			}
-			#ft .ui.list .item {
-				display: block;
-				font-size: 1em;
-				padding: .3em 0;
-				letter-spacing: 2px;
-			}
-			#ft a{
-				text-decoration: none;
-				color:#fff;
-			}
-			#ft a:hover {
-				text-decoration: underline;
-				color:red;
-			}
-			#ft .ftline{
-				display:inline-block;
-			}
-			#ft .ftline .sina{
-				opacity:0;
-				position:absolute;
-				top:42px;
-				-webkit-transition: all .3s ease .1s;
-				transition: all .3s ease .1s;
-			}
-			#ft .ftline:hover .sina{
-				opacity:1;
-				position:absolute;
-				top:42px;
-			}
-			#ft .fto{
-				margin: auto auto 3em!important;
-			}
-			#ft .copyright {
-				font-size: 14px;
-				line-height:3.33rem;
-			}
-			#ft a.ui.link.item {
-				font-size: 14px;
-			}
-			
-			.ui.men .row:first-child{
-				margin-left:490px;
-				width:472px !important;
-			}
-			.ui.topic .uyan{
-				background:url(/images/cm_p3.jpg);
-				height:21px;
-				width:21px;
-				display: inline-block;
-				float: left;
-			}
-			.ui.topic .mess{
-				background:url(/images/cm_p4.jpg);
-				height:21px;
-				width:21px;
-				display: inline-block;
-				float: left;
-			}
-			.ui.topic .like{
-				background:url(/images/cm_p5.jpg);
-				height:21px;
-				width:21px;
-				display: inline-block;
-				float: left;
-			}
-			.ui.topic .text{
-				font-size: 14px;
-				display: inline-block;
-				float: left;
-				line-height: 21px;
-				padding:0 8px 0 5px;
-				color: rgba(0,0,0,.4);
-			}
-			.ui.topic .world {
-				display: block;
-				clear: both;
-				font-size: 15px;
-				color: rgba(0,0,0,.4);
-				padding-top: 10px;
-			}
-			.ui.topic .advantage {
-				padding-top: 10px;
-			}
-			.ui.topic{
-				padding:24px 0 !important;
-			}
-			
+<style type="text/css">
+	#ft {
+		background: none repeat scroll 0 0 #545454;
+		padding: 1em 0 2em;
+		color:#fff;
+	}
+	#ft .ui.list .item {
+		display: block;
+		font-size: 1em;
+		padding: .3em 0;
+		letter-spacing: 2px;
+	}
+	#ft a{
+		text-decoration: none;
+		color:#fff;
+	}
+	#ft a:hover {
+		text-decoration: underline;
+		color:red;
+	}
+	#ft .ftline{
+		display:inline-block;
+	}
+	#ft .ftline .sina{
+		opacity:0;
+		position:absolute;
+		top:42px;
+		-webkit-transition: all .3s ease .1s;
+		transition: all .3s ease .1s;
+	}
+	#ft .ftline:hover .sina{
+		opacity:1;
+		position:absolute;
+		top:42px;
+	}
+	#ft .fto{
+		margin: auto auto 3em!important;
+	}
+	#ft .copyright {
+		font-size: 14px;
+		line-height:3.33rem;
+	}
+	#ft a.ui.link.item {
+		font-size: 14px;
+	}
+	
+	.ui.men .row:first-child{
+		margin-left:460px;
+		width:570px !important;
+	}
+	.ui.topic .uyan{
+		background:url(/images/cm_p3.jpg);
+		height:21px;
+		width:21px;
+		display: inline-block;
+		float: left;
+	}
+	.ui.topic .mess{
+		background:url(/images/cm_p4.jpg);
+		height:21px;
+		width:21px;
+		display: inline-block;
+		float: left;
+	}
+	.ui.topic .like{
+		background:url(/images/cm_p5.jpg);
+		height:21px;
+		width:21px;
+		display: inline-block;
+		float: left;
+	}
+	.ui.topic .text{
+		font-size: 14px;
+		display: inline-block;
+		float: left;
+		line-height: 21px;
+		padding:0 8px 0 5px;
+		color: rgba(0,0,0,.4);
+	}
+	.ui.topic .world {
+		display: block;
+		clear: both;
+		font-size: 15px;
+		color: rgba(0,0,0,.4);
+		padding-top: 10px;
+	}
+	.ui.topic .advantage {
+		padding-top: 10px;
+	}
+	.ui.topic {
+		padding:24px 0 !important;
 		
-		</style>
-		{% endblock %}
+	}
+	.ui.topic > .row {
+		padding-bottom: 10px;
+		border-bottom: 1px solid rgba(0,0,0,0.1);
+	}
+	.ui.topic > .row > .column {
+		padding-left: 0rem;
+		padding-right: 0rem;
+	}
+	.ui.topic > .row > .column > .image {
+		padding-right: 1.5rem;
+	}
+	.ui.grid .noresult {
+		min-height: 500px;
+		margin-top: 2em;
+	}
+	.ui.pagination {
+		text-align: center;
+		padding: 1em 0 2em;
+	}
+</style>
+{% endblock %}
 
-		{% block jquery %}
+{% block jquery %}
 
-		{% endblock %}
+{% endblock %}
 
-		{% block content %}
-		
-		<div class="ui men grid">
-			<div class="ui responsive grid">
-				<div class="row">
-					<div class="ui four cards">
-						<div class="center aligned card">
-							<a href="articles.html"><h5 class="ui header">评测</h5></a>
-						</div>
-						<div class="center aligned card">
-							<a href="{{ app_url_domain }}/site/try"><h5 class="ui header">试用体验</h5></a>
-						</div>
-						<div class="center aligned card">
-							<h5 class="ui header active">产品动态</h5>
-						</div>
-						<div class="center aligned card">
-							<h5 class="ui header">线下活动</h5>
-						</div>
-					</div>
+{% block content %}
+<div class="ui men grid">
+	<div class="ui responsive grid">
+		<div class="row">
+			{% category_list var:'category' only_open:1 domain:1 pid:current_category._id current:cid show_all:1 %}
+			<div class="ui five cards">
+				{% for cat in category.rows %}
+				<div class="center aligned card">
+				  	<a class="{{ cat.active }}" href="{{ app_url_topic }}/c{{ cat._id }}">
+				    	<h5 class="ui header">{{ cat.title }}</h5>
+				  	</a>
 				</div>
+				{% endfor %}
 			</div>
 		</div>
-		
-		<section class="ui topic responsive grid">
-			<div class="row">
-				<div class="eight wide column">
-					<img src="/images/cm_t.jpg">
-				</div>
-				<div class="eight wide column">
-					<div class="content">
-						<h3 class="ui header">
-							酷品推荐】Pawly宠物智能玩具：让你与宠物心贴心
-							<div class="advantage">
-								<div class="text">2014-09-23  &nbsp;&nbsp;13:20&nbsp;&nbsp;</div>
-								<div class="uyan"></div>
-								<div class="text">123</div>
-								<div class="mess"></div>
-								<div class="text">22</div>
-								<div class="like"></div>
-								<div class="text">12</div>
-								<div class="world">作为首款家庭智能影院，坚果G1采用了行业顶尖的DLP优质光学投影，可以为用户提供最高达300寸的巨幅影像，支持1080P全高清视频，还可播放3D蓝光片源。笔者第一时间拿到了坚果工程机，为大家带来高清美图和详细评测！</div>
-							</div>
-						</h3>
-					</div>
-				</div>
+	</div>
+</div>
+
+{% topic_list var:'list' page:page category_id:cid %}
+{% if list.rows %}
+<div class="ui topic responsive grid">
+	{% for topic in list.rows %}
+	<div class="row">
+		<div class="eight wide column">
+			<div class="ui image">
+	    		<img src="{{ topic.cover.thumbnails.large.view_url }}" alt="{{ topic.title }}" />
 			</div>
-		</section>
-		<section class="ui topic responsive grid">
-			<div class="row">
-				<div class="eight wide column">
-					<img src="/images/cm_t.jpg">
-				</div>
-				<div class="eight wide column">
-					<div class="content">
-						<h3 class="ui header">
-							酷品推荐】Pawly宠物智能玩具：让你与宠物心贴心
-							<div class="advantage">
-								<div class="text">2014-09-23  &nbsp;&nbsp;13:20&nbsp;&nbsp;</div>
-								<div class="uyan"></div>
-								<div class="text">123</div>
-								<div class="mess"></div>
-								<div class="text">22</div>
-								<div class="like"></div>
-								<div class="text">12</div>
-								<div class="world">作为首款家庭智能影院，坚果G1采用了行业顶尖的DLP优质光学投影，可以为用户提供最高达300寸的巨幅影像，支持1080P全高清视频，还可播放3D蓝光片源。笔者第一时间拿到了坚果工程机，为大家带来高清美图和详细评测！</div>
-							</div>
-						</h3>
+		</div>
+		<div class="eight wide column">
+			<div class="content">
+				<h3 class="ui header">
+					<a class="header" href="{{ topic.view_url }}">{{ topic.title|truncate 50 }}</a>
+					<div class="advantage">
+						<div class="text">{{ topic.created_on|date 'Y-m-d H:i' }}</div>
+						<div class="uyan"></div>
+						<div class="text">{{ topic.view_count }}</div>
 					</div>
-				</div>
+				</h3>
+				<div class="world">{{ topic.strip_description|truncate 350 }}</div>
 			</div>
-		</section>
-		<section class="ui topic responsive grid">
-			<div class="row">
-				<div class="eight wide column">
-					<img src="/images/cm_t.jpg">
-				</div>
-				<div class="eight wide column">
-					<div class="content">
-						<h3 class="ui header">
-							酷品推荐】Pawly宠物智能玩具：让你与宠物心贴心
-							<div class="advantage">
-								<div class="text">2014-09-23  &nbsp;&nbsp;13:20&nbsp;&nbsp;</div>
-								<div class="uyan"></div>
-								<div class="text">123</div>
-								<div class="mess"></div>
-								<div class="text">22</div>
-								<div class="like"></div>
-								<div class="text">12</div>
-								<div class="world">作为首款家庭智能影院，坚果G1采用了行业顶尖的DLP优质光学投影，可以为用户提供最高达300寸的巨幅影像，支持1080P全高清视频，还可播放3D蓝光片源。笔者第一时间拿到了坚果工程机，为大家带来高清美图和详细评测！</div>
-							</div>
-						</h3>
-					</div>
-				</div>
+		</div>
+	</div>
+	{% endfor %}
+</div>
+<div class="ui responsive grid">
+	<div class="row">
+		<div class="center aligned column">
+			<div class="ui pagination">
+				{% pager url:pager_url,total_rows:list.total_rows,total_page:list.total_page,current_page:page,var:'pager',pager_size:9 %}
+				{%include 'block/pager.html'%}
 			</div>
-		</section>
-		
+		</div>
+	</div>
+</div>
+{% else %}
+<div class="ui responsive grid">
+	<div class="row">
+		<div class="center aligned column">
+			<div class="noresult">
+				<div class="ui warning message">该分类暂时没有内容！</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endif %}
+
 {% endblock %}
 		
 		

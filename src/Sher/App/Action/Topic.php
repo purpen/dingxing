@@ -22,7 +22,7 @@ class Sher_App_Action_Topic extends Sher_App_Action_Base {
 	 */
 	public function getlist(){
 		
-		return $this->to_html_page('page/articles.html');
+		return $this->to_html_page('page/topic.html');
 	}
 	
 	/**
@@ -53,7 +53,7 @@ class Sher_App_Action_Topic extends Sher_App_Action_Base {
         }
 		
 		// 增加pv++
-		$inc_ran = rand(1,6);
+		$inc_ran = rand(10,60);
 		$model->increase_counter('view_count', $inc_ran, $id);
 		
 		// 当前用户是否有管理权限
