@@ -19,7 +19,7 @@ class Sher_App_Action_Index extends Sher_App_Action_Base {
 	protected $page_tab = 'page_index';
 	protected $page_html = 'page/index.html';
 	
-	protected $exclude_method_list = array('execute', 'home', 'products', 'smart', 'topic', 'about', 'contact', 'cm', 'lcm', 'xkl', 'dkl', 'water', 'car');
+	protected $exclude_method_list = array('execute', 'home', 'products','xiaodu','yinyong','house', 'smart', 'topic', 'about', 'contact', 'cm', 'lcm', 'xkl', 'dkl', 'water', 'car');
 	
 	protected $admin_method_list = array();
 	
@@ -45,6 +45,30 @@ class Sher_App_Action_Index extends Sher_App_Action_Base {
 	public function products(){
 		$this->set_target_css_state('page_products');
         return $this->to_html_page('page/products.html');
+	}
+	
+	/**
+	 * 产品汇
+	 */
+	public function xiaodu(){
+		$this->set_target_css_state('page_products');
+        return $this->to_html_page('page/xiaodu.html');
+	}
+	
+	/**
+	 * 产品汇
+	 */
+	public function yinyong(){
+		$this->set_target_css_state('page_products');
+        return $this->to_html_page('page/yinyong.html');
+	}
+	
+	/**
+	 * 产品汇
+	 */
+	public function house(){
+		$this->set_target_css_state('page_products');
+        return $this->to_html_page('page/house.html');
 	}
 	
 	/**
