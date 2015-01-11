@@ -21,6 +21,14 @@ server {
         location /site {
 		  rewrite ^/site/(.*)$ /app/site/index/$1 last;  
         }
+        location /asset {
+		  rewrite ^/asset(.*)$ /app/site/asset$1 last;
+        }
+		
+        location /uploader {
+		  rewrite ^/uploader(.*)$ /app/site/uploader$1 last;
+        }
+		
 		
         location /topic {
           	rewrite ^/topic[/]?$ /app/site/topic last;
