@@ -92,7 +92,7 @@
 	</div>
 </div>
 
-{% topic_list var:'list' page:page category_id:cid %}
+{% topic_list var:'list' page:page category_id:cid state:1 %}
 {% if list.rows %}
 <div class="ui topic responsive grid">
 	{% for topic in list.rows %}

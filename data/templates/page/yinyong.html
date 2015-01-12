@@ -1,0 +1,137 @@
+{%extends 'layout/column.html'%}
+
+{% block page_css %}
+<style type="text/css">
+	a {
+		text-decoration: none;
+	}
+	a:hover .sub.header{
+		color:red !important;
+	}
+	a .sub.header{
+		color:#dc5a5a !important;
+		font-size:22px;
+		margin: 10px auto 15px;
+	}
+	.ui.gray.section{
+		background:#f1f2f5;
+	}
+	.image img{
+		max-width:100%;
+		margin-bottom: -4px;
+	}
+	/*#products .ui.section{
+		margin:2em auto 2em;
+	}*/
+	.ui.table .row:first-child,.ui.men.grid .row:first-child{
+		margin-left:340px;
+		width:520px !important;
+	}
+	
+	.ui.table{
+		margin:.5em 0 6rem;
+	}
+	.ui.table .ui.four.cards .card{
+		min-height:0;
+	}
+	.p-air{
+		width: 126px;
+		height: 196px;
+	}
+	.p-air .cm{
+		width: 126px;
+		height: 196px;
+		background:url(/images/p_1.jpg) no-repeat scroll center center /cover;
+		position:absolute;
+		left:0;
+		top:0;
+	}
+	.p-air .lcm{
+		width: 126px;
+		height: 196px;
+		background:url(/images/p_2.jpg) no-repeat scroll center center /cover;
+		position:absolute;
+		left:0;
+		top:0;
+	}
+	.p-air .xkl{
+		width: 126px;
+		height: 196px;
+		background:url(/images/p_3.jpg) no-repeat scroll center center /cover;
+		position:absolute;
+		left:0;
+		top:0;
+	}
+	.p-air .dkl{
+		width: 126px;
+		height: 196px;
+		background:url(/images/p_4.jpg) no-repeat scroll center center /cover;
+		position:absolute;
+		left:0;
+		top:0;
+	}
+	
+	
+</style>
+{% endblock %}
+
+{% block jquery %}
+	
+{% endblock %}
+
+{% block content %}
+	<div class="ui men grid">
+		<div class="ui responsive grid">
+			<div class="row">
+				<div class="ui four cards">
+					<div class="center aligned card">
+					  	<a class="" href="{{ app_url_domain }}/site/products">
+					    	<h5 class="ui header">空净产品</h5>
+					  	</a>
+					</div>
+					<div class="center aligned card">
+					  	<a class="" href="{{ app_url_domain }}/site/xiaodu">
+					    	<h5 class="ui header">消毒产品</h5>
+					  	</a>
+					</div>
+					<div class="center aligned card">
+					  	<a class="active" href="{{ app_url_domain }}/site/yinyong">
+					    	<h5 class="ui header">饮用产品</h5>
+					  	</a>
+					</div>
+					<div class="center aligned card">
+					  	<a class="" href="{{ app_url_domain }}/site/house">
+					    	<h5 class="ui header">智能家居</h5>
+					  	</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div id="products">
+		<section class="ui section">
+			<div class="ui responsive grid">
+				<div class="row">
+					<div class="eight wide column">
+						<div class="image">
+							<img src="/images/dx_p11.jpg">
+						</div>
+					</div>
+					<div class="eight wide column">
+						<div class="image">
+							<img src="/images/dx_p12.jpg">
+						</div>
+						<h3 class="ui header">
+							<a href="{{ app_url_domain }}/site/water">
+								<div class="sub header">
+									进一步了解产品 >
+								</div>
+							</a>
+						</h3>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+{% endblock %}

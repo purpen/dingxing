@@ -27,6 +27,8 @@ class Sher_App_ViewTag_TopicList extends Doggy_Dt_Tag {
 		// 二级分类
 		$category_id = 0;
 		
+		$state = 0;
+		
 		$type = 0;
 		$time = 0;
 		$sort = 0;
@@ -57,6 +59,10 @@ class Sher_App_ViewTag_TopicList extends Doggy_Dt_Tag {
 			} else {
 				$query['category_id'] = (int)$category_id;
 			}
+		}
+		
+		if($state){
+			$query['state'] = (int)$state;
 		}
 		
 		if($target_id){
